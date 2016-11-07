@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function recursion(x){
+        if(x>0){
+            document.write(x+'<hr/>');
+
+            recursion(x-1);
+        }
+
+    }
+    recursion(10);
+
+    function fact(num){
+        if (num<=1){
+            return 1;
+        }else{
+            return num*fact(num-1);
+        }
+    }
+    console.log(fact(10));
+</script>
+</html>

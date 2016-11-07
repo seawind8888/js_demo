@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var Cat = {
+        sound : "喵喵喵",
+        createNew: function(){
+            var cat = {};
+            cat.makeSound = function(){ alert(Cat.sound); };
+            cat.changeSound = function(x){ Cat.sound = x; };
+            return cat;
+        }
+    };
+    var cat1 = Cat.createNew();
+    var cat2 = Cat.createNew();
+    cat1.makeSound();// 喵喵喵
+    cat2.changeSound("啦啦啦");
+    cat1.makeSound(); // 啦啦啦
+</script>
+</html>

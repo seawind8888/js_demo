@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function abc(a) {
+        this.a=1;
+
+    }
+    abc.prototype.def = function () {
+        alert(this.a)
+    };
+
+    a1= new abc(2);
+    a1.def();
+</script>
+</html>

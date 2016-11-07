@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function one(){
+        this.a = "123";
+    }
+    function two(name,color){
+        this.b = 'abc';
+        this.c = 'def';
+    }
+    one.prototype = new two();
+    var three = new one();
+    alert(three.a); // 动物
+</script>
+</html>

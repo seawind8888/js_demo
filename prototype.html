@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function one(a,b) {
+        this.a = a;
+        this.b = b;
+    }
+    one.prototype.two = function () {
+        console.log(this.a+this.b);
+    };
+    var aa = new one(11,22)
+    aa.two();
+</script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test">
+
+</div>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+    $.getJSON('area.json', function(json){
+        for (var i = 0; i < json.rows.length; i++) {
+            $('#test').append('<p>' + json.rows[i].realName + '</p>');
+        }
+    });
+</script>
+</html>
