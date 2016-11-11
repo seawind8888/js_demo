@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<a onclick="abc()">111</a>
+
+</body>
+<script>
+  aaa = null;
+  function abc() {
+    alert(aaa);
+    this.aaa = 111;
+    return function def() {
+      this.aaa = 222;
+    }
+  }
+
+</script>
+</html>
