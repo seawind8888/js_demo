@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>123</div>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    window.addEventListener('click',function (e) {
+        var X = e.clientX;
+        var Y = e.clientY;
+        var SX = e.screenX;
+        var SY = e.screenY;
+        console.log(X);
+        console.log(Y);
+        console.log(SX);
+        console.log(SY);
+        console.log(e.currentTarget);
+        console.log(e.target);
+        e.currentTarget.style.color = 'red';
+    })
+</script>
+</html>
