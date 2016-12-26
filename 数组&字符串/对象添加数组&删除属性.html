@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        tr {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<p>姓名<input name="name"></p>
+<p>年龄<input name="age"></p>
+<p>
+    <button id="btn">提交</button>
+    <button id="delete">删除年龄</button>
+    <button id="form">生成数据</button>
+</p>
+<table>
+    <tr>
+        <td>姓名</td>
+        <td>年龄</td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript" src="../static/jquery.min.js"></script>
+<script>
+    var obj = {};
+    var array = [];
+    $('#btn').on('click', function () {
+        var $name = $('input[name=name]').val();
+        var $age = $('input[name=age]').val();
+        obj.name = $name;
+        obj.age = $age;
+        array.push(obj);
+        console.log(array);
+    });
+    $('#delete').on('click', function () {
+        delete obj.age;
+        console.log(array);
+    });
+    $('#form').on('click',function () {
+        for (var i = 0; i < array.length;i++) {
+            console.log(1);
+            var $html = '<tr><td>' + array[i].name + '</td>' + '<td>' + array[i].age + '</td></tr>';
+            $('table').append($html);
+        }
+    });
+</script>
+</html>

@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb1cc06-ccfc-49c7-ade8-0b360f3a8d0a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/event.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/for in.html" afterPath="$PROJECT_DIR$/数组&amp;字符串/for in.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/for_in_2.html" afterPath="$PROJECT_DIR$/数组&amp;字符串/16进制转10进制.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/数组&amp;字符串/index.html" afterPath="$PROJECT_DIR$/数组&amp;字符串/遍历.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/数组&amp;字符串/jquery.min.js" afterPath="$PROJECT_DIR$/static/jquery.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/数组&amp;字符串/统计最多2.html" afterPath="$PROJECT_DIR$/数组&amp;字符串/10进制转16进制.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/构造函数.html" afterPath="$PROJECT_DIR$/构造函数继承/构造函数.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/date_test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/emoji.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/function_test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/return测试.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/数组&amp;字符串/splice索引插入.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/数组&amp;字符串/对象添加数组&amp;删除属性.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/数组&amp;字符串/对象添加删除.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/数组&amp;字符串/map.html" afterPath="$PROJECT_DIR$/数组&amp;字符串/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/数组&amp;字符串/筛选.html" afterPath="$PROJECT_DIR$/数组&amp;字符串/筛选.html" />
     </list>
     <ignored path="js_demo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +30,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="面试练习.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="面试练习.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/面试练习.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="330">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="对象添加数组&amp;删除属性.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/数组&amp;字符串/对象添加数组&amp;删除属性.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="34" column="5" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="return测试.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/return测试.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splice索引插入.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/数组&amp;字符串/splice索引插入.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -60,11 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/proptotype.html" />
-        <option value="$PROJECT_DIR$/class.html" />
-        <option value="$PROJECT_DIR$/Array.html" />
-        <option value="$PROJECT_DIR$/Array2.html" />
-        <option value="$PROJECT_DIR$/call&amp;apply.html" />
         <option value="$PROJECT_DIR$/闭包.html" />
         <option value="$PROJECT_DIR$/this.html" />
         <option value="$PROJECT_DIR$/prototype2.html" />
@@ -102,8 +124,6 @@
         <option value="$PROJECT_DIR$/构造函数继承/插件.html" />
         <option value="$PROJECT_DIR$/构造函数继承/插件/插件.js" />
         <option value="$PROJECT_DIR$/构造函数继承/插件/插件.html" />
-        <option value="$PROJECT_DIR$/数组&amp;字符串/对象添加删除.html" />
-        <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/数组&amp;字符串/统计最多2.html" />
         <option value="$PROJECT_DIR$/数组&amp;字符串/map.html" />
         <option value="$PROJECT_DIR$/16进制转10进制.html" />
@@ -111,6 +131,13 @@
         <option value="$PROJECT_DIR$/数组&amp;字符串/index.html" />
         <option value="$PROJECT_DIR$/event.html" />
         <option value="$PROJECT_DIR$/for in.html" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/emoji.html" />
+        <option value="$PROJECT_DIR$/function_test.html" />
+        <option value="$PROJECT_DIR$/数组&amp;字符串/对象添加删除.html" />
+        <option value="$PROJECT_DIR$/数组&amp;字符串/splice.html" />
+        <option value="$PROJECT_DIR$/数组&amp;字符串/对象添加数组&amp;删除属性.html" />
+        <option value="$PROJECT_DIR$/return测试.html" />
       </list>
     </option>
   </component>
@@ -125,8 +152,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-48" />
-    <option name="y" value="-717" />
+    <option name="x" value="50" />
+    <option name="y" value="35" />
     <option name="width" value="1097" />
     <option name="height" value="644" />
   </component>
@@ -184,7 +211,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jquery_test" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -301,7 +328,9 @@
       <workItem from="1481697392643" duration="1127000" />
       <workItem from="1481712210792" duration="595000" />
       <workItem from="1481768200080" duration="1715000" />
-      <workItem from="1482113904642" duration="4533000" />
+      <workItem from="1482113904642" duration="5252000" />
+      <workItem from="1482313446342" duration="2803000" />
+      <workItem from="1482718655592" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="done">
       <created>1478515273575</created>
@@ -331,14 +360,21 @@
       <option name="project" value="LOCAL" />
       <updated>1480910893995</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="done">
+      <created>1482121596775</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1482121596775</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60969000" />
+    <option name="totallyTimeSpent" value="71001000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-48" y="-717" width="1097" height="644" extended-state="0" />
+    <frame x="50" y="35" width="1097" height="644" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3317844" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -377,20 +413,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="done" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js依赖注入.js" />
-    <entry file="file://$PROJECT_DIR$/for_in.html" />
-    <entry file="file://$PROJECT_DIR$/依赖注入.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajax.html" />
     <entry file="file://$PROJECT_DIR$/json/listData.json" />
     <entry file="file://$PROJECT_DIR$/return.html" />
     <entry file="file://$PROJECT_DIR$/闭包/闭包2.html">
@@ -465,13 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/数组&amp;字符串/split.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/正则/test正则.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -506,7 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -514,26 +534,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/构造函数继承/js插件/插件.js" />
-    <entry file="file://$PROJECT_DIR$/test.html" />
     <entry file="file://$PROJECT_DIR$/数组&amp;字符串/统计最多2.html" />
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html" />
     <entry file="file://$PROJECT_DIR$/数组&amp;字符串/push.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -541,7 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,7 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -565,7 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -573,7 +579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -581,15 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/数组&amp;字符串/对象添加删除.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -613,7 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -621,7 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -629,23 +621,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/for_in_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/for_in_2.html" />
     <entry file="file://$PROJECT_DIR$/递归函数.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -653,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="11" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,7 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,14 +657,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/数组&amp;字符串/split.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/function_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/date_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/面试练习.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        <state relative-caret-position="330">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emoji.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1362" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1482317162000" expanded="true" signature="148:155" ph="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/数组&amp;字符串/splice索引插入.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/数组&amp;字符串/对象添加数组&amp;删除属性.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/return测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
