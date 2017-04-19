@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    function BinarySearch(srcArray, find) {
+
+        var low = 0;
+        var high = srcArray.length - 1;
+        while (low <= high) {
+            var middle = (low + high) / 2;
+            if (find == srcArray[middle]) {
+                console.log('在数组位置' + middle);
+                return
+            } else if (find < srcArray[middle]) {
+                high = middle - 1;
+            } else {
+                low = middle + 1;
+            }
+        }
+    }
+    var array = [1, 5, 7, 23, 34, 84];
+    BinarySearch(array, 7)
+</script>
 </html>

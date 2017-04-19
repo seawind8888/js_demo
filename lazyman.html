@@ -11,8 +11,8 @@
     function _LazyMan(name) {
         this.tasks = [];
         var self = this;
-        var fn =(function(n){
-            var name = n;
+        var fn =(function(name){
+            // var name = n;
             return function(){
                 console.log("Hi! This is " + name + "!");
                 self.next();
@@ -71,6 +71,6 @@
     }
 
 
-    LazyMan('Hank').sleep(10).eat('dinner')
+    LazyMan('Hank').sleep(2).eat('dinner')
 </script>
 </html>
