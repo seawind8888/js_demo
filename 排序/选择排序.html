@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arrryTest = [85, 24, 63, 17, 31, 17, 86, 50];
+    function select(array) {
+        var len = array.length;
+        for (var i = 0; i < len - 1; i++) { //这里之所以是len-1，是因为到最后两个元素，交换位置，整个数组就已经排好序了。
+            var minnum = array[i];
+            for (var j = i + 1; j < len; j++) { // j=i+1是把与自己比较的情况给省略掉
+                if (array[j] < minnum) {
+                    var c;
+                    c = minnum;
+                    minnum = array[j]; //交换两个值
+                    array[j] = c;
+                }
+            }
+            array[i] = minnum;
+        }
+        return array;
+
+    }
+    console.log(select(arrayTest))
+</script>
+
+</html>

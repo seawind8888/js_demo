@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="test">
+
+</div>
+</body>
+<script>
+    var one = {
+        a: 1,
+        b: {
+            ba: 22,
+            bb: 33,
+        },
+        c: [111,222,333],
+        d: 4
+    }
+    var two = JSON.parse(JSON.stringify(one))
+    console.log(two === one)
+    console.log(two.b.ba)
+</script>
+</html>
