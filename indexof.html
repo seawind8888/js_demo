@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let array = [{
+            value: 1,
+            node: [{
+                itemA: 'abc',
+                itemB: 'def'
+            }],
+        },
+        {
+            value: 2,
+            node: [{
+                itemA: 'abc',
+                itemB: 'def'
+            }],
+        },
+        {
+            value: 1,
+            node: [{
+                itemA: 'abc',
+                itemB: 'def'
+            }]
+        }
+    ]
+    arrayPush = []
+    for (var i = 0; i < array.length; i++) {
+        if(arrayPush.indexOf(array[i].value) == -1) {
+            arrayPush.push(array[i])
+        }
+    }
+    console.log(arrayPush)
+</script>
+
+</html>
