@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="header">
+            <div id="logo"></div>
+            <div id="menu"></div>
+        </div>
+        <div id="content">
+            <div id="article">
+                <div id="para1"></div>
+                <div id="para2"></div>
+                <div id="para3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // console.log(document.getElementById("app"))
+    function DFS(node, cb) {
+        let deep = 1;
+        DFSdom(node, deep, cb)
+    }
+
+    function DFSdom(node, deep, cb) {
+        if (!node)
+            return;
+
+        cb(node, deep)
+        if (!node.childNodes.length) {
+            return;
+        }
+
+        deep++;
+
+        Array.from(node.childNodes).forEach(item => DFSdom(item, deep, cb))
+    }
+    DFS(document.getElementById("app"), function (node, deep) {
+        console.log(node.nodeType)
+        if (node.nodeType == 3) // 排除文本节点
+            return
+        // console.log(node, deep);
+    })
+</script>
+
+</html>
