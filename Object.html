@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var tree = {
+        value: 1,
+        left: {
+            value: 2,
+            left_one: {
+                value: 4
+            }
+        },
+        right: {
+            value: 3,
+            left_two: {
+                value: 5,
+                left_three: {
+                    value: 7
+                },
+                right: {
+                    value: 8
+                }
+            },
+            right: {
+                value: 6
+            }
+        }
+    }
+    var keyParse = Object.keys(tree)
+    
+    console.log(Object.keys(tree))
+    // console.log(tree.left.hasOwnProperty('left_one'))
+</script>
+</html>
