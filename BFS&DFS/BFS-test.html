@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div id="root">
+    <div class="container">
+      <section class="sidebar">
+        <ul class="menu"></ul>
+      </section>
+      <section class="main">
+        <article class="post"></article>
+        <p class="copyright"></p>
+      </section>
+    </div>
+  </div>
+</body>
+<script>
+  let printInfo = (node) => {
+    console.log(node.tagName, '.' + node.className)
+  }
+  let root = document.getElementById('root')
+
+  // let current = []
+  // let nextRound = [root]
+  // Array.from(root).forEach((element) => {
+  //   console.log(element)
+  // })
+  
+  // console.log(nextRound)
+  // // 遍历函数
+  // function bfs() {
+  //   current = nextRound
+  //   nextRound = []
+  //   Array.from(current).forEach(function (el) {
+  //     printInfo(el)
+  //     Array.from(el.children).forEach(function (element) {
+  //       nextRound.push(element)
+  //     })
+  //   })
+  // }
+
+  // // 开始遍历
+  // while (nextRound.length) {
+  //   bfs()
+  // }
+</script>
+
+</html>

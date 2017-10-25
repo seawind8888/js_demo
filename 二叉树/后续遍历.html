@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var tree = {
+    value: "-",
+    left: {
+      value: '+',
+      left: {
+        value: 'a',
+      },
+      right: {
+        value: '*',
+        left: {
+          value: 'b',
+        },
+        right: {
+          value: 'c',
+        }
+      }
+    },
+    right: {
+      value: '/',
+      left: {
+        value: 'd',
+      },
+      right: {
+        value: 'e',
+      }
+    }
+  }
+
+  var postListRec = []; //定义保存后序遍历结果的数组
+
+  //递归遍历
+  var postOrderRec = function (node) {
+    if (node) { //判断二叉树是否为空
+      postOrderRec(node.left); //递归遍历左子树
+      postOrderRec(node.right); //递归遍历右子树
+      postListRec.push(node.value); //将结点的值存入数组中
+    }
+  }
+  postOrderRec(tree);
+  console.log(postListRec);
+
+
+  //非递归遍历
+  var postOrderUnRec = function (node) {
+    if (node) { //判断二叉树是否为空
+      var stack = [node]; //将二叉树压入栈
+      var tmp = null; //定义缓存变量
+      while (stack.length !== 0) { //如果栈不为空，则循环遍历
+        tmp = stack[stack.length - 1]; //将栈顶的值保存在tmp中
+        if (tmp.left && node !== tmp.left && node !== tmp.right) { //如果存在左子树
+          stack.push(tmp.left); //将左子树结点压入栈
+        } else if (tmp.right && node !== tmp.right) { //如果结点存在右子树
+          stack.push(tmp.right); //将右子树压入栈中
+        } else {
+          postListUnRec.push(stack.pop().value);
+          node = tmp;
+        }
+      }
+    }
+  }
+  postOrderUnRec(tree);
+  console.log(postListUnRec);
+</script>
+
+</html>

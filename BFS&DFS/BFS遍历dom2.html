@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="header">
+      <div id="logo"></div>
+      <div id="menu"></div>
+    </div>
+    <div id="content">
+      <div id="article">
+        <div id="para1"></div>
+        <div id="para2"></div>
+        <div id="para3"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function BFS(node, cb) {
+    if (!node)
+      return;
+
+    var queue = [{
+      node: node,
+      depth: 1
+    }]
+
+    while (queue.length) {
+      var current = queue.shift();
+
+      cb(current)
+
+      current.node.childNodes.length && Array.from(current.node.childNodes).forEach(item => {
+        queue.push({
+          node: item,
+          depth: current.depth + 1
+        })
+      })
+    }
+  }
+  
+  BFS(document.getElementById("app"), function (node) {
+    if (node.node.nodeType == 3) // 排除文本节点
+      return
+    console.log(node);
+  })
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div class="root">
+    <div class="container">
+      <section class="sidebar">
+        <ul class="menu"></ul>
+      </section>
+      <section class="main">
+        <article class="post"></article>
+        <p class="copyright"></p>
+      </section>
+    </div>
+  </div>
+</body>
+<script>
+  let printInfo = (node) => {
+    console.log(node.tagName, '.' + node.className)
+  }
+  let root = document.getElementsByClassName('root')[0]
+
+  // 此时遍历的为current，记录下一层遍历的为nextRound，初始值为root
+  let current = []
+  let nextRound = [root]
+
+  function dfs(node) {
+    printInfo(node)
+    if (node.children.length) {
+      Array.from(node.children).forEach(function (el) {
+        dfs(el)
+      })
+    }
+  }
+  dfs(root)
+</script>
+
+</html>
