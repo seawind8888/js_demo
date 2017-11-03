@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div>123</div>
+</body>
+<script>
+  var Singleton = function (name) {
+    this.name = name;
+    // 实例创建表示
+    this.instance = null;
+  };
+  Singleton.prototype.getName = function () {
+    return this.name;
+  };
+
+  // 获取实例方法
+  Singleton.getInstance = (function (name) {
+    // 实例创建表示
+    var instance = null;
+    return function (name) {
+      if (!instance) {
+        instance = new Singleton(name);
+      }
+      return instance;
+    }
+  })();
+  
+  var s1 = Singleton.getInstance();
+  var s2 = Singleton.getInstance();
+  console.info(s1 === s2); // true
+  console.log(Singleton)
+</script>
+
+</html>
