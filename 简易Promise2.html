@@ -2,33 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 
 <body>
 
 </body>
 <script>
-    function PromiseTest(fn) {
-      var taskList = []
-      this.then = (task) => {
-        taskList.push(task)
-        return this
-      }
-      var resolve = () => {
-        taskList.forEach((task) => {
-          task()
-        }) 
-      }
-      fn(resolve)
+  function PromiseTest(fn) {
+    var taskList = []
+    this.then = (task) => {
+      taskList.push(task)
+      return this
     }
-    function starRequest() {
-      return new PromiseTest((resolve) => resolve()).then(() => {
-        console.log(2)
-      })
+    var resolve = (nums) => {
+      console.log(nums)
+      setTimeout(() => {
+        var task = taskList.shift()
+        task()
+      }, 0)
     }
-    starRequest()
+    fn(resolve)
+  }
+
+  function starRequest() {
+    return new PromiseTest((resolve) => resolve(1)).then(() => {
+      console.log(2)
+    })
+  }
+  starRequest()
 </script>
 
 </html>
