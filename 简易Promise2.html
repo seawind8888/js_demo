@@ -11,17 +11,20 @@
 </body>
 <script>
     function PromiseTest(fn) {
-      console.log(1)
-      var callback = []
-      this.then = (thenFn) => {
-        callback.push(this.thenFn)
-      }
-      var resolve = () => {
+      var taskList = []
+      this.then = (task) => {
+        taskList.push(task)
         return this
       }
+      var resolve = () => {
+        taskList.forEach((task) => {
+          task()
+        }) 
+      }
+      fn(resolve)
     }
     function starRequest() {
-      return new PromiseTest().then(() => {
+      return new PromiseTest((resolve) => resolve()).then(() => {
         console.log(2)
       })
     }
