@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function PromiseTest(fn) {
+      console.log(1)
+      var callback = []
+      this.then = (thenFn) => {
+        callback.push(this.thenFn)
+      }
+      var resolve = () => {
+        return this
+      }
+    }
+    function starRequest() {
+      return new PromiseTest().then(() => {
+        console.log(2)
+      })
+    }
+    starRequest()
+</script>
+
+</html>
