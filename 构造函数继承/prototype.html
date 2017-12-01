@@ -11,6 +11,10 @@
     function one(a,b) {
         this.a = a;
         this.b = b;
+        this.three = function() {
+            console.log(33)
+        }
+        
     }
     one.prototype.two = function () {
         console.log(this.a+this.b);
