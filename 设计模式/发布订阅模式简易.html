@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div>123</div>
+</body>
+<script>
+  let event = {};
+  event.list = [];
+  //增加订阅者
+  event.listen = function (fn) {
+    event.list.push(fn);
+  }
+  //发布消息
+  event.trigger = function () {
+    for (var i = 0, fn; fn = this.list[i++];) {
+      fn.apply(this, arguments);
+    }
+  }
+
+  let click = function () {
+    console.log('event：click');
+  }
+
+  let hover = function () {
+    console.log('event：hover');
+  }
+
+  event.listen(click);
+  event.listen(hover);
+  event.trigger();
+  //打印：
+  // ‘
+  // event： click’
+  //   'event：hover'
+</script>
+
+</html>
