@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+</body>
+<script>
+  let Foo = (function(){
+    var foo = () => {
+      console.log('foo')
+    };
+    var doo = () => {
+      console.log('doo')
+    }
+    return {
+      foo: foo,
+      doo: doo
+    }
+  })()
+  Foo.foo()
+</script>
+
+</html>
