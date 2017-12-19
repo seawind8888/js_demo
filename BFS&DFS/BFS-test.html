@@ -24,30 +24,23 @@
     console.log(node.tagName, '.' + node.className)
   }
   let root = document.getElementById('root')
+  let nextRound = []
 
-  // let current = []
-  // let nextRound = [root]
-  // Array.from(root).forEach((element) => {
-  //   console.log(element)
-  // })
-  
-  // console.log(nextRound)
   // // 遍历函数
-  // function bfs() {
-  //   current = nextRound
-  //   nextRound = []
-  //   Array.from(current).forEach(function (el) {
-  //     printInfo(el)
-  //     Array.from(el.children).forEach(function (element) {
-  //       nextRound.push(element)
-  //     })
-  //   })
-  // }
-
+  function bfs(domTree) {
+    Array.from(domTree).forEach(function (node) {
+      console.log(node.tagName, '.' + node.className)
+      // console.log(node.children)
+      // printInfo(el)
+      Array.from(node.children).forEach(function (element) {
+        nextRound.push(element)
+      })
+    })
+  }
   // // 开始遍历
-  // while (nextRound.length) {
-  //   bfs()
-  // }
+  while ([root].length) {
+    bfs([root])
+  }
 </script>
 
 </html>
