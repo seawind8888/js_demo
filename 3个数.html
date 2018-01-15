@@ -20,17 +20,13 @@ class threeSum {
     this.numCombo = [],
     this.queue = [];
   }
-  start () {
-    let nums = this.nums,
-        queue = this.queue,
-        numCombo = this.numCombo,
-        numLen = nums.length
-    nums.sort(function(a, b) {
+  startSum () {
+    this.nums.sort(function(a, b) {
         return a - b;
     });
    
-    for(let i = 0;i < numLen; i++) {
-        if (i > 0 && nums[i] === nums[i - 1]) {
+    for(let i = 0;i < this.nums.length; i++) {
+        if (i > 0 && this.nums[i] === this.nums[i - 1]) {
             continue
         }
         queue.push(nums[i]);
