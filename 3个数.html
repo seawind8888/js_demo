@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+class threeSum {
+  constructor(nums) {
+    this.nums = nums,
+    this.numCombo = [],
+    this.queue = [];
+  }
+  start () {
+    let nums = this.nums,
+        queue = this.queue,
+        numCombo = this.numCombo,
+        numLen = nums.length
+    nums.sort(function(a, b) {
+        return a - b;
+    });
+   
+    for(let i = 0;i < numLen; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue
+        }
+        queue.push(nums[i]);
+        this.twoSum(numCombo, queue, i + 1, numLen - 1, -nums[i], nums);
+        queue.pop();
+    }
+    console.log(numCombo) ;
+  }
+  twoSum(result, queue, startIndex, endIndex, target, nums) {
+    let start = startIndex,
+        end = endIndex,
+        sum,
+        mid;
+    
+    while (start < end) {
+       sum = nums[start] + nums[end];
+       
+       if (sum === target) {
+          queue.push(nums[start]);
+          queue.push(nums[end]);
+          result.push(queue.concat());
+          queue.pop();
+          queue.pop();
+           
+           start++;
+           end--;
+           
+           while (nums[start] === nums[start - 1]) {
+               start++;
+           }
+           
+           while (nums[end] === nums[end + 1]) {
+               end--;
+           }
+       } else if (sum < target) {
+           start++;
+       } else {
+           end--;
+       }
+    }
+  }
+  
+};
+var S = [1,2,-3,-2,0,-1,-1,2]
+var start = new threeSum(S)
+start.start()
+ </script>
+
+</html> 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var tree = {
+    value: "-",
+    left: {
+      value: '+',
+      left: {
+        value: 'a',
+      },
+      right: {
+        value: '*',
+        left: {
+          value: 'b',
+        },
+        right: {
+          value: 'c',
+        }
+      }
+    },
+    right: {
+      value: '/',
+      left: {
+        value: 'd',
+      },
+      right: {
+        value: 'e',
+      }
+    }
+  }
+
+  var invertTree = function(root) {
+    if(root == null) { // 如果不存在，则返回[]
+        return root;
+    } else { // 交换左右结点
+        var temp = root.left;
+        root.left  = root.right;
+        root.right = temp;
+    }
+    invertTree(root.left); // 转换左子树
+    invertTree(root.right); // 转换右子树
+    return root;//返回最后结果
+  };
+</script>
+
+</html>

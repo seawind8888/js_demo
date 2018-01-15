@@ -13,6 +13,9 @@
         this.b = '456'
     }
     one.prototype = {
+        constructor() {
+            this.a = '123'
+        },
         two: function () {
             console.log(a)
         },

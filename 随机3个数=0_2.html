@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+function threeSum(nums) {
+    let numCombo = [],
+        queue = [];
+    nums.sort(function(a, b) {
+        return a - b;
+    });
+
+    for(let i = 0;i < nums.length; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue
+        }
+        queue.push(nums[i]);
+        twoSum(numCombo, queue, i + 1, nums.length - 1, -nums[i], nums);
+        queue = []
+    }
+    console.log(numCombo) ;
+};
+
+function twoSum(numCombo, queue, startIndex, endIndex, target, nums) {
+    let start = startIndex,
+        end = endIndex,
+        sum
+    
+    while (start < end) {
+       sum = nums[start] + nums[end];
+       
+       if (sum === target) {
+          queue.push(nums[start]);
+          queue.push(nums[end]);
+          numCombo.push(queue.concat());
+          queue.pop();
+           
+           start++;
+           end--;
+       } else if (sum < target) {
+           start++;
+       } else {
+           end--;
+       }
+    }
+}
+var S = [1,2,-3,-2,0,-1,-1,2]
+threeSum(S)
+ </script>
+
+</html> 
