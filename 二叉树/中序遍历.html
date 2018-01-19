@@ -50,9 +50,11 @@
   }
   inOrderRec(tree);
   console.log(inListRec);
+  //  ["a", "+", "b", "*", "c", "-", "d", "/", "e"]
 
 
   //非递归遍历
+  var inListUnRec = []
   var inOrderUnRec = function (node) {
     if (node) { //判断二叉树是否为空
       var stack = []; //建立一个栈

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  class Cat {
+    constructor(name, sex){
+      this.name = name
+      this.sex = sex
+    }
+
+    makSound () {
+      console.log('miaomiao ' + this.name)
+    }
+  }
+  
+  function Dog (name, sex) {
+    this.name = name
+    this.sex = sex
+    this.makSound = function () {
+      console.log('wangwang ' + this.name) 
+    }
+  }
+  Dog.prototype.makSound = function () {
+    console.log('wangwang ' + this.name)
+  }
+
+  var cat = new Cat('tom')
+  var dog = new Dog('goudan')
+  cat.makSound()
+  dog.makSound()
+</script>
+</html>

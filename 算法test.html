@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  
+var numDistinct = function(s, t) {
+    var lenS = s.length,
+        lenT = t.length,
+        i,
+        j,
+        dp;
+        
+    if (lenS < lenT) {
+        return 0;
+    }
+    
+    if (lenS === lenT) {
+        return s === t? 1 : 0;
+    }
+    
+    dp = [];
+    
+    for (i = 0; i <= lenT; i++) {
+        dp.push(new Array(lenS + 1));
+
+        for (j = 0; j <= lenS; j++) {
+            dp[i][j] = 0;
+        }
+    }
+    
+    for (j = 0; j <= lenS; j++) {
+        dp[0][j] = 1;
+    }
+    
+    
+    for (i = 0; i < lenT; i++) {
+        for (j = 0; j < lenS; j++) {
+            dp[i + 1][j + 1] = dp[i + 1][j];
+            
+            if (s.charAt(j) === t.charAt(i)) {
+                dp[i + 1][j + 1] += dp[i][j];
+            }
+        }
+    }
+    
+    return dp[lenT][lenS];
+};
+
+
+</script>
+
+</html>
