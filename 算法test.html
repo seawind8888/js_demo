@@ -2,59 +2,36 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 
 <body>
 
 </body>
 <script>
-  
-var numDistinct = function(s, t) {
-    var lenS = s.length,
-        lenT = t.length,
-        i,
-        j,
-        dp;
-        
-    if (lenS < lenT) {
-        return 0;
-    }
-    
-    if (lenS === lenT) {
-        return s === t? 1 : 0;
-    }
-    
-    dp = [];
-    
-    for (i = 0; i <= lenT; i++) {
-        dp.push(new Array(lenS + 1));
+    var isValidSerialization = function (preorder) {
+        var arr = preorder.split(','),
+            stack = [],
+            len = arr.length,
+            i;
 
-        for (j = 0; j <= lenS; j++) {
-            dp[i][j] = 0;
-        }
-    }
-    
-    for (j = 0; j <= lenS; j++) {
-        dp[0][j] = 1;
-    }
-    
-    
-    for (i = 0; i < lenT; i++) {
-        for (j = 0; j < lenS; j++) {
-            dp[i + 1][j + 1] = dp[i + 1][j];
-            
-            if (s.charAt(j) === t.charAt(i)) {
-                dp[i + 1][j + 1] += dp[i][j];
+        for (i = 0; i < len; i++) {
+            stack.unshift(arr[i]);
+
+            while (stack.length > 2 && stack[0] === '#' && stack[1] === '#') {
+                if (stack[2] === '#') {
+                    return false;
+                }
+
+                stack.shift();
+                stack.shift();
+                stack[0] = '#';
             }
         }
-    }
-    
-    return dp[lenT][lenS];
-};
 
-
+        return stack.length === 1 && stack[0] === '#';
+    };
 </script>
 
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var tree = {
+    val: "-",
+    left: {
+      val: '+',
+      left: {
+        val: 'a',
+      },
+      right: {
+        val: '*',
+        left: {
+          val: 'b',
+        },
+        right: {
+          val: 'c',
+        }
+      }
+    },
+    right: {
+      val: '/',
+      left: {
+        val: 'd',
+      },
+      right: {
+        val: 'e',
+      }
+    }
+  }
+  var newTree
+  var invertTree = function (root) {
+    if (!root.left) {
+      return;
+    }
+    var tmp = root.left;
+    root.left = root.right;
+    root.right = tmp;
+    arguments.callee(root.left);
+    arguments.callee(root.right);
+  };
+</script>
+
+</html>

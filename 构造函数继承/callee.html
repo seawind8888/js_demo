@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  var i = 0
+  function test() {
+    if(i > 3) return
+    console.log(i)
+    i++
+    arguments.callee()
+  }
+</script>
+</html>
