@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script src="./static/bridge.js"></script>
+<script>
+    mm.ui.showConfirm({
+        title: '标题', // 可选，无此值时，不显示标题
+        content: '这是双按钮提示',
+        btn1: '按钮1',
+        btn2: '按钮2', // 可选，无此值时，显示一个按钮
+        callback1: function () {}, // btn1回调 (bridge封装，client忽略)
+        callback2: function () {}, // btn2回调 (bridge封装，client忽略)
+        cancel: function () {}, // ios 不支持，安卓点击浮层、物理返回键时回调 (bridge封装，client忽略)
+        finish: function () {} // 无论做了什么，最后都回调此方法 (bridge封装，client忽略)
+    });
+</script>
+
+</html>

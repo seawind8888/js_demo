@@ -10,27 +10,41 @@
 
 </body>
 <script>
-    var isValidSerialization = function (preorder) {
-        var arr = preorder.split(','),
-            stack = [],
-            len = arr.length,
-            i;
+    var threeSumClosest = function (nums, target) {
+        var len = nums.length,
+            minDiff = Number.MAX_VALUE,
+            diff,
+            left,
+            right,
+            i,
+            j;
+
+        nums.sort(function (a, b) {
+            return a - b;
+        });
 
         for (i = 0; i < len; i++) {
-            stack.unshift(arr[i]);
+            left = i + 1;
+            right = len - 1;
 
-            while (stack.length > 2 && stack[0] === '#' && stack[1] === '#') {
-                if (stack[2] === '#') {
-                    return false;
+            while (left < right) {
+                diff = target - nums[i] - nums[left] - nums[right];
+
+                if (diff === 0) {
+                    return target;
+                } else if (diff > 0) {
+                    left++;
+                } else {
+                    right--;
                 }
 
-                stack.shift();
-                stack.shift();
-                stack[0] = '#';
+                if (Math.abs(diff) < Math.abs(minDiff)) {
+                    minDiff = diff;
+                }
             }
         }
 
-        return stack.length === 1 && stack[0] === '#';
+        return target - minDiff;
     };
 </script>
 
