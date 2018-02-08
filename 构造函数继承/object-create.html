@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-
 <body>
-  <div id="test">
 
-  </div>
 </body>
 <script>
-  function Shape() {
-    this.x = 0;
-    this.y = 0;
-  }
+    function Foo(name) {
+        this.name = name;
+    }
+    Foo.prototype.myName = function() {
+        return this.name;
+    };
 
-  // 父类的方法
-  Shape.prototype.move = function (x, y) {
-    this.x += x;
-    this.y += y;
-    console.info('Shape moved.');
-  };
-
-  // Rectangle - 子类(subclass)
-  function Rectangle() {
-    Shape.call(this); // call super constructor.
-  }
-  // var rec = new Shape()
-
-  // 子类续承父类
-  Rectangle.prototype = Shape.prototype;
-  Rectangle.prototype.constructor = Rectangle;
+    function Bar(name, label) {
+        // Foo.call(this, name);
+        this.label = label;
+    }
+    Dar.prototype = Foo.prototype
+    Bar.prototype = Object.create(Foo.prototype);
+    Bar.prototype.myLabel = function() {
+        return this.label;
+    }
+    var a = new Bar('Monica', 'student');
+    a.myName(); // 'Monica'
+    a.myLabel(); // 'student'
 </script>
-
 </html>
