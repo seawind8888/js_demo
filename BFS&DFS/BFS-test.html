@@ -20,26 +20,23 @@
   </div>
 </body>
 <script>
-  let printInfo = (node) => {
-    console.log(node.tagName, '.' + node.className)
-  }
-  let root = document.getElementById('root')
-  let nextRound = []
+  let root = document.getElementById('root'),
+      stack = [root]
 
-  // // 遍历函数
-  function bfs(domTree) {
-    Array.from(domTree).forEach(function (node) {
-      console.log(node.tagName, '.' + node.className)
-      // console.log(node.children)
-      // printInfo(el)
-      Array.from(node.children).forEach(function (element) {
-        nextRound.push(element)
-      })
+  var bfs = function BFS () {
+    stack.forEach((e, i ,a) => {
+      console.log(e.tagName + '.' + e.className) 
+      stack.splice(i, 1)
+      if(e.children) {
+        Array.from(e.children).forEach((ec,ic) => {
+          stack.push(ec)
+        })
+      }
     })
   }
-  // // 开始遍历
-  while ([root].length) {
-    bfs([root])
+  // stack.push(root)
+  while (stack.length) {
+    bfs()
   }
 </script>
 
