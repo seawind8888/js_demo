@@ -10,6 +10,39 @@ body {
 
 }
 
+/* 文字 */
+.textarea {
+  font-size: 60px;
+  position: absolute;
+}
+textarea:focus {
+  outline:none
+}
+
+/* 整体动画 */
+
+/* .container-show {
+  animation: containerShowAni 3s linear;
+}
+
+.container-hide {
+  animation: containerHideAni 3s linear;
+}
+
+
+@keyframes containerShowAni{
+  0% { opacity: 0}
+  100% { opacity: 1}
+}
+
+@keyframes containerHideAni{
+  0% { opacity: 1}
+  100% { opacity: 0}
+} */
+
+
+
+
 /* 心 */
 
 .chest {
@@ -456,8 +489,7 @@ figure #bike1 use {
 
 
 /* 树 */
-#main{width:100%;}
-#wrap{position:relative;margin:0 auto;width:1100px;height:680px;margin-top:10px;}
+#wrap{position:relative;margin:0 auto;width:1100px;height:680px;margin-top:10px; top: 800px;}
 #text{width:400px;height:425px;left:60px;top:80px;position:absolute;}
 #code{display:none;font-size:16px;}
 #clock-box {position:absolute;left:60px;top:550px;font-size:28px;display:none;}
