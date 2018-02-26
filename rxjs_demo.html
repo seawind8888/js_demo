@@ -8,7 +8,7 @@
     #container {
       background-color: aqua;
       height: 100px;
-    width: 100px;
+      width: 100px;
     }
   </style>
 </head>
@@ -18,20 +18,18 @@
 </body>
 <script src="./js/rx.lite.js"></script>
 <script>
-  var start = null;
-  var element = document.getElementById('container');
-  element.style.position = 'absolute';
-  
-  function step(timestamp) {
-    if (!start) start = timestamp;
-    var progress = timestamp - start;
-    element.style.left = Math.min(progress / 10, 200) + 'px';
-    if (progress < 2000) {
-      window.requestAnimationFrame(step);
+  var observable = Rx.Observable.create(function subscribe(observer) {
+    try {
+      for(let i = 0; i<=5 ; i++) {
+        setTimeout(() => {
+          observer.next(i)
+        },1000)  
+      }
+      // observer.complete();
+    } catch (err) {
+      observer.error(err); // 如果捕获到异常会发送一个错误
     }
-  }
-  
-  window.requestAnimationFrame(step);
+  });
 </script>
 
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var i = 0
+  function fetch(count) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log(count)
+        i++
+        resolve()
+      }, 1000)
+    })
+  }
+
+  function* test() {
+      yield fetch(i)
+  }
+  var result = test()
+  while(i<5){
+    result.next()
+  }
+</script>
+
+</html>
