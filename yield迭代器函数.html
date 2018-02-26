@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div>123</div>
+</body>
+<script>
+  function* countAppleSales(i=0) {
+    while (i <= 5) {
+      yield console.log(i)
+      i++
+    }
+  }
+  var result = countAppleSales()
+</script>
+
+</html>
