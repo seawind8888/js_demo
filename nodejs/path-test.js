@@ -1,0 +1,5 @@
+const path = require('path')
+const fs = require('fs')
+const localPath = path.resolve('nodejs')
+// console.log(localPath)
+console.log(fs.accessSync(path.resolve('nodejs')))
