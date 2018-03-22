@@ -11,15 +11,23 @@
 </body>
 <script>
   function Foo() {
+    this.a = 1
     this.foo = function() {
       console.log('aaaa')
     }
+    
+  }
+  Foo.prototype.doo = function(val) {
+    this.a += val
+    console.log(this.a)
     return this
   }
-  Foo.prototype.doo = function() {
-    console.log('bbbbb')
+  Foo.prototype.eoo = function(val) {
+    this.a -= val
+    console.log(this.a)
+    return this
   }
-  console.log()
+  var F = new Foo()
 </script>
 
 </html>

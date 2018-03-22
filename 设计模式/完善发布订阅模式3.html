@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div>123</div>
+</body>
+<script>
+  
+  class Publisher {
+    constructor() {
+      this.queue = {}
+    }
+    subscribe (key, callback) {
+      if(!this.queue[key]) {
+        this.queue[key] = []
+      }
+      this.queue[key].push(callback)
+    }
+    publish(key, args) {
+      if(!this.queue[key]) {
+        return
+      }
+      let len = this.queue[key].length
+      
+      this.queue[key].forEach(element => {
+        element.call(this, args)
+      });
+    }
+    subscribe(key, fn) {
+      if(!this.queue[key]) {
+        return
+      }
+      this.queue[key].forEach((element, index)=> {
+        if(element == fn) {
+          this.queue[key].splice(index)
+        }
+      });
+    }
+  }
+  var subpub = new Publisher()
+  subpub.subscribe('aaa', function() {console.log('aaa' + arguments[0])})
+  subpub.subscribe('aaa', function() {console.log('bbb' + arguments[0])})
+  subpub.publish('aaa', 'ccc')
+</script>
+
+</html>
