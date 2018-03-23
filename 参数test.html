@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  function getAjaxData(params, obj, scope) {
+    var value, type,
+      array = Array.isArray(obj) || obj instanceof Array,
+      hash = typeof (obj) == 'object' && Object.getPrototypeOf(obj) == Object.prototype
+
+    for (var key in obj) {
+      value = obj[key];
+      type = typeof value;
+
+      if (scope) key = scope + '[' + (hash || type == 'object' ? key : '') + ']'
+      // handle data in serializeArray() format
+      if (!scope && array) {
+        params.push(addAjaxParam(key, value));
+      }
+      // recurse into nested objects
+      else if (type == "object")
+        getAjaxData(params, value, key);
+      else {
+        params.push(addAjaxParam(key, value));
+      }
+    }
+  }
+
+  function addAjaxParam(key, value) {
+    if (typeof value == 'function') value = value()
+    if (value == null) value = ""
+    return encodeURIComponent(key) + '=' + encodeURIComponent(value)
+  }
+  var data = {
+    rule: 'device$network$momo_version', //固定规则，直接复制：device$network$momo_version
+    meta: {
+      device: "ios", //设备类型 ios/android
+      network: "wifi", //网络状态 wifi/4g/3g/2g
+      momo_version: '8.1', //陌陌版本 
+    },
+    data: {
+      first_screen_time: 500, //首帧时长（单位ms）
+      first_meaningful_time: 856 //首意义帧时长（单位ms）
+    },
+    business_name: 'E30', //业务名称
+    business_url: 'http://m.immomo.com/s/e30/home.html' //业务具体页面url（不要带参数）
+  }
+  var param = []
+  getAjaxData(param, data)
+</script>
+
+</html>
