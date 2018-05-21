@@ -3,29 +3,29 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
 <body>
 
 </body>
 <script>
-  var i = 0
-  function fetch(count) {
+  function sleep() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(count)
-        i++
         resolve()
+        console.log(`Time is ${new Date()}`)
       }, 1000)
     })
   }
 
-  function* test() {
-      yield fetch(i)
+  function* sleepCount() {
+    yield sleep()
   }
-  var result = test()
-  while(i<5){
+  var result = sleepCount()
+  for (var i = 0; i < 5; i++) {
     result.next()
   }
 </script>
