@@ -1,0 +1,34 @@
+<html >
+
+<head></head>
+
+<body>
+
+
+    111
+    <a id="tttt" href=""></a>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script type="text/javascript">
+    //轮播图
+    setTimeout(() => {
+        html2canvas(document.querySelector('body')).then(canvas => {
+            document.body.appendChild(canvas)
+            down()
+        });
+    }, 3000)
+
+    function down() {
+        var canvas = document.querySelector('canvas')
+        url = canvas.toDataURL("image/png"); //PNG格式
+        //以下代码为下载此图片功能
+        var triggerDownload = $("#tttt").attr("href", url).attr("download", "order-1111111111.png");
+        triggerDownload[0].click();
+        //    triggerDownload.remove();
+    }
+</script>
+
+
+</html>
