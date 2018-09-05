@@ -48,4 +48,4 @@ function copyDir(src, dist, callback) {
     }
 }
 
-// copyDir(path.join(__dirname, './aaa'), path.join(__dirname, '../static'), (e) => {console.log(e)});
+copyDir(path.join(__dirname, './aaa'), path.join(__dirname, '../../static'), (e) => {console.log(e)});

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>dbit</title>
+	<link href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css" rel="stylesheet">
+	<style type="text/css">
+		.dbit-bg {
+			background-color: #eeb027;
+			width: 1080px;
+			min-height: 800px;
+			padding-top: 149px;
+			padding-bottom: 50px;
+			margin: 0 auto;
+		}
+
+		.dbit>.content {
+			width: 1000px;
+			font-size: 36px;
+			min-height: 600px;
+			/*border: 1px solid black;*/
+			background-color: white;
+			margin: 0 auto;
+			border-radius: 20px;
+			position: relative;
+			z-index: 3;
+		}
+
+		.dbit .element {
+			width: 904px;
+			margin: 0 auto;
+			padding-top: 42px;
+			padding-bottom: 40px;
+
+		}
+
+		.dbit .title {
+			font-size: 44px;
+			font-weight: bold;
+			color: #333333
+		}
+
+		.dbit .time {
+			min-height: 43px;
+			color: #999999
+		}
+
+		.dbit .desc {
+			min-height: 100px;
+			word-wrap: break-word;
+			white-space: normal;
+			word-break: break-all;
+		}
+
+		.dbit .qrarea {
+			min-height: 100px;
+			display: flex;
+			flex-direction: row;
+			padding-bottom: 0;
+		}
+
+		.dbit .copyright {
+			min-height: 100px;
+			text-align: center;
+			padding-top: 0;
+		}
+
+		.dbit .qr {
+			width: 230px;
+			height: 230px;
+			margin: 50px
+		}
+
+		.dbit .qr img {
+			width: 100%;
+
+		}
+
+		.dbit .qrcode-desc1 {
+			color: #333333;
+			font-size: 38px;
+			line-height: 53px;
+
+		}
+
+		.dbit .qrcode-desc2 {
+			margin-top: 16px;
+			color: #666666;
+			font-size: 30px;
+			line-height: 150%;
+
+		}
+
+		.header-img {
+			position: absolute;
+			top: 0;
+			z-index: 2;
+
+		}
+
+		.header-title-container {
+			position: relative;
+			z-index: 3;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.header-title-container>.header-logo-img {
+			width: 480px;
+			height: 128px;
+		}
+
+		.header-title-desc {
+			margin-top: 32px;
+			font-size: 40px;
+			line-height: 48px;
+		}
+
+		.qrcode-cut-line {
+			display: flex;
+			align-items: center;
+			padding: 0 49px;
+		}
+
+		.qrcode-cut-line-part {
+			background-color: #EAEAEA;
+			height: 2px;
+			flex: 1;
+		}
+
+		.qrcode-cut-circle-part {
+			width: 5px;
+			height: 5px;
+			border-radius: 5px;
+			background-color: #EAEAEA;
+			margin: 0 2px;
+		}
+
+		.qrcode-desc-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		#cover {
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="capture" class="container dbit-bg dbit">
+		<img src="./bg_front.png" alt="" class="header-img">
+		<div class="header-title-container">
+			<img id="logo"  alt="" class="header-logo-img">
+			<p id="desc" class="header-title-desc">
+				
+			</p>
+		</div>
+		<div class="content">
+			<div class="time element" id="time">2018-07-06 20::23:30</div>
+			<div style="padding-top: 0" id="title" class="element title">
+				请输入标题
+			</div>
+			<div style="padding-top: 0" id="content" class="element">
+				请输入内容
+			</div>
+			<div style="padding-top: 0" class="element">
+				<img id="cover" src="./bg_front.png" alt="">
+			</div>
+			<div class="qrcode-cut-line">
+				<div class="qrcode-cut-line-part"></div>
+				<div class="qrcode-cut-circle-part"></div>
+				<div class="qrcode-cut-line-part"></div>
+			</div>
+			<div class="qrarea element">
+				<div class="qr ">
+					<img id="qrcode" >
+				</div>
+				<div class="qrcode-desc-container">
+					<div id="ad-title" class="qrcode-desc1">
+						请输入宣传说明标题
+					</div>
+					<div id="ad-desc" class="qrcode-desc2">
+						请输入宣传说明内容
+					</div>
+				</div>
+			</div>
+			<div id="copyright" class="copyright element">
+				请输入版权信息
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+	<script>
+		let lock = false
+		document.addEventListener('DOMContentLoaded', function () {
+			window.onstorage = (evt) => {
+				if(lock) return
+				lock = true
+				let key = evt.key
+					value = JSON.parse(window.localStorage[evt.key])
+				$('#logo').attr('src', value.logo)
+				$('#desc').html(value.desc)
+				$('#title').html(value.title)
+				$('#content').html(value.content.replace(/\n/g, '<br>').replace(/\s/g, '&nbsp'))
+				$('#cover').attr('src', value.cover)
+				$('#qrcode').attr('src', value.qrcode)
+				$('#ad-title').html(value.ad.title)
+				$('#ad-desc').html(value.ad.desc.replace(/\n/g, '<br>').replace(/\s/g, '&nbsp'))
+				$('#copyright').html(`@copyright &nbsp ${value.copyright}`)
+				html2canvas(document.querySelector("#capture"), {
+				scale: 2
+				}).then(canvas => {
+					lock = false
+					let img = getimage(canvas)
+					let src = img.src
+						// $download = $(window.parent.document).find('#download')
+					$(window.parent.document).find('#preview').html(img)
+					// $download.attr('download', '32323.png').attr('href', src)
+				});
+			
+			}
+		})
+		
+		window.onload = () => {
+			$('#time').html(initTime())
+	
+		}
+		
+		
+		function initTime() {
+			return moment().format('YYYY-MM-DD  HH:MM:SS')
+		}
+	
+		function getimage(canvas) {
+			var image = new Image();
+			var context = canvas.getContext('2d');
+			image.crossOrigin = "Anonymous";
+			context.drawImage(image, 0, 0);
+			image.setAttribute("width", '100%')
+			image.src = canvas.toDataURL("image/jpg");
+			return image;
+		}
+	
+	</script>
+
+
+</html>

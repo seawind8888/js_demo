@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <style>
+        #root {
+            display: flex;
+            flex-direction: row;
+        }
+        body {
+            margin: 0;
+            /* padding-top: 60px;
+            padding-left: 200px; */
+        }
+
+        .manager-input-container {
+            align-items: center;
+            flex-direction: column;
+        }
+        p {
+            margin: 0;
+        }
+
+        .input-list-item {
+            display: flex;
+            width: 700px;
+            margin: 10px 0;
+            flex-direction: row;
+        }
+
+        .input-name {
+            width: 150px;
+            text-align: right;
+            margin-right: 10px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .input-warn {
+            color: red;
+            margin-right: 3px;
+        }
+
+        .input-container {
+            width: 400px;
+        }
+
+
+        .input-button {
+            margin-left: 10px;
+        }
+        .input-section-container {
+            position: relative;
+        }
+        .hide-input-container {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            z-index: -1;
+            /* position: absolute;
+            top: right;
+            right: 0; */
+            
+        }
+        .preview-img {
+            width: 400px;
+            height: 200px;
+        }
+        .img-preview-container {
+            margin-top: 10px;
+        }
+        .submit-button {
+            width: 195px;
+        }
+        .iframe-container {
+            margin-left: 10px;
+            width: 0;
+            height: 0;
+            border-width: 0;
+        }
+        .canvas-container {
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div class="manager-input-container">
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>logo:<br>(推荐90x24)</p>
+                </div>
+                <div class="input-section-container">
+                    <div class="input-main-container">
+                        <el-input :disabled="true" v-model="logo.name" class="input-container" ref="logo-view"
+                            placeholder="点击按钮上传图片"></el-input>
+                        
+                        <el-button @click="uploadImg('logo')" class="input-button">浏览...</el-button>
+                    </div>
+                    <div v-if="logo.name" class="img-preview-container">
+                        <img :src="logo.src" class="preview-img" />
+                    </div>
+                </div>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>Slogan:</p>
+                </div>
+                <el-input v-model="desc" class="input-container" placeholder="
+                        请输入，建议 100 字符内"></el-input>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>标题:</p>
+                </div>
+                <el-input v-model="title"  class="input-container" placeholder="请输入">
+                </el-input>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>内容:</p>
+                </div>
+                <el-input v-model="content" type="textarea" class="input-container" placeholder="请输入">
+                </el-input>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>配图</p>
+                </div>
+                <div class="input-section-container">
+                    <div class="input-main-container">
+                        <el-input :disabled="true" v-model="cover.name" class="input-container" ref="logo-view"
+                            placeholder="点击按钮上传图片"></el-input>
+                        
+                        <el-button @click="uploadImg('cover')" class="input-button">浏览...</el-button>
+                    </div>
+                    <div v-if="cover.name" class="img-preview-container">
+                        <img :src="cover.src" class="preview-img" />
+                    </div>
+                </div>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>二维码:<br>(推荐90x90)</p>
+                </div>
+                <div class="input-section-container">
+                    <div class="input-main-container">
+                        <el-input :disabled="true" v-model="qrcode.name" class="input-container" ref="logo-view"
+                            placeholder="点击按钮上传图片"></el-input>
+                        
+                        <el-button @click="uploadImg('qrcode')" class="input-button">浏览...</el-button>
+                    </div>
+                    <div v-if="qrcode.name" class="img-preview-container">
+                        <img :src="qrcode.src" class="preview-img" />
+                    </div>
+                </div>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>宣传说明标题</p>
+                </div>
+                <el-input v-model="ad.title" class="input-container" placeholder="请输入，建议1行"></el-input>
+
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>宣传说明内容：</p>
+                    <p>（支持换行）</p>
+                </div>
+                <el-input v-model="ad.desc" type="textarea" class="input-container" placeholder="请输入">
+                </el-input>
+
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+                    <p><i class="input-warn">*</i>版权信息:</p>
+                </div>
+                <el-input v-model="copy" class="input-container" placeholder="请输入">
+                </el-input>
+            </div>
+            <div class="input-list-item">
+                <div class="input-name">
+
+                </div>
+                <el-button  class="submit-button" @click="initImg"  type="primary">生成</el-button>
+                <el-button class="submit-button" @click="previewImg" plain>预览</el-button>
+            </div>
+        </div>
+        <iframe class="iframe-container" src="./dbitcut.html"></iframe>
+        <div  id="preview"  class="canvas-container">
+           
+        </div>
+    </div>
+    <input id="uploadLogo" onchange="showPreview(this, 'logo')" type="file" class="input-container hide-input-container"
+            placeholder="" />
+    <input id="uploadQrcode" onchange="showPreview(this,  'qrcode')" type="file" class="input-container hide-input-container"
+            placeholder="" />
+    <input id="uploadCover" onchange="showPreview(this, 'cover')" type="file" class="input-container hide-input-container"
+            placeholder="" />
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    function showPreview(source, img) {
+        var file = source.files[0];
+        if (window.FileReader) {
+            var fr = new FileReader();
+            fr.onloadend = function (e) {
+                vm[img].name = file.name
+                vm[img].src = e.target.result
+            }
+            fr.readAsDataURL(file);
+        }
+    }
+    let vm = new Vue({
+        el: '#root',
+        data: () => {
+            return {
+                logo: {
+                    name: '',
+                    src: ''
+                },
+                desc: '',
+                cover: {
+                    name: '',
+                    src: ''
+                },
+                qrcode: {
+                    name: '',
+                    src: ''
+                },
+                input: '',
+                title: '',
+                content: '',
+                copy: '',
+                ad: {
+                    title: '',
+                    desc: ''
+                }
+            }
+        },
+        methods: {
+            initImg: () => {
+                
+                let imgSrc = $('#preview').find('img').attr('src')
+                if(!imgSrc) {
+                    vm.$message({
+                        message: '请先预览图片',
+                        type: 'warning'
+                    });
+                    return
+                }
+               
+                // dataURLtoFile(imgSrc, 'aaa.png')
+                
+                
+                let date = Date.parse(new Date()) + '.png'
+                // let file = dataURLtoFile(imgSrc, date)
+                downloadFile(date, imgSrc)
+                // $('body').append(`<a href="${dataURLtoFile(imgSrc, date).name}" id="download" download="${date}">`)
+                // $('#download')[0].click()
+            },
+          
+            previewImg: () => {
+                let data = {
+                    logo: vm.logo.src,
+                    desc: vm.desc,
+                    title: vm.title,
+                    content: vm.content,
+                    copyright: vm.copy,
+                    qrcode: vm.qrcode.src,
+                    cover: vm.cover.src,
+                    ad: vm.ad
+                }
+                window.localStorage.removeItem('data')
+                window.localStorage.data = JSON.stringify(data)
+               
+            },
+            uploadImg: (type) => {
+                switch (type) {
+                    case 'logo':
+                        $('#uploadLogo').click()
+                        break;
+                    case 'qrcode':
+                        $('#uploadQrcode').click()
+                        break;
+                    case 'cover':
+                        $('#uploadCover').click()
+                        break;
+                }
+            }
+        }
+    })
+    window.onbeforeunload = (event) => {
+		event.returnValue="确定离开当前页面吗？";
+	}
+    function downloadFile(fileName, dataURI){
+        if($('#uploadInitImg')[0]) $('#uploadInitImg').remove()
+        var aLink = document.createElement('a');
+        aLink.id = 'uploadInitImg'
+        var byteString = atob(dataURI.split(',')[1]);  
+        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];  
+        var ab = new ArrayBuffer(byteString.length);  
+        var ia = new Uint8Array(ab);  
+        for (var i = 0; i < byteString.length; i++) {  
+            ia[i] = byteString.charCodeAt(i);  
+        }  
+        var blob = new Blob([ab], {type: mimeString});
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent("click", false, false);
+        aLink.download = fileName;
+        aLink.href = URL.createObjectURL(blob);
+        aLink.dispatchEvent(evt);
+        $('body').append(aLink)
+        $('#uploadInitImg')[0].click()
+    }
+</script>
+
+</html>

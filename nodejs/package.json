@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "main": "pathToMain",
     "dependencies": {
-        "fs": "^0.0.1-security"
+        "fs": "^0.0.1-security",
+        "koa": "^2.5.2"
     }
 }
