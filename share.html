@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Your Website Title</title>
+    <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+  <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Your Website Title" />
+  <meta property="og:description"   content="Your description" />
+  <!-- <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" /> -->
+  <meta data-n-head="true" data-hid="details" property="og:image" content="http://media.thedbit.com/dailymedia/pro/image/ccb0cc788217462f857dac294ec3e616/小3.jpg">
+  <style>
+  .fb-share-button {
+      width: 200px;
+      height: 100px;
+      background-color: aqua
+  }</style>
+</head>
+<body>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v3.1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your share button code -->
+  <div class="fb-share-button" 
+    data-href="https://www.your-domain.com/your-page.html" 
+    data-layout="button">分享
+  </div>
+  <!-- <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?
+       u=http%3A%2F%2Fdolphin.com%2Fhappy-new-year%2F &
+       t=Enter%20your%20name%20and%20see%20what%20you%20might%20encounter%20in%20the%20new%20year."
+       target="_blank" id="J-share-facebook">分享fb
+</a> -->
+<a class="facebook" id="fb" href=""
+       target="_blank" id="J-share-facebook">分享fb
+</a>
+
+</body>
+    <script>
+        let fb = document.getElementById('fb')
+            fb.href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&t=${encodeURIComponent('dwdwd')}`
+    </script>
+</html>
