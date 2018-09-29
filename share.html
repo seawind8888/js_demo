@@ -15,11 +15,32 @@
       height: 100px;
       background-color: aqua
   }</style>
+  <script>window.twttr = (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function (f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+  </script>
 </head>
+
 <body>
+    
+  <div class="twitter-share-button" onclick="twitter()" id="container">111</div>
+
 
   <!-- Load Facebook SDK for JavaScript -->
-  <div id="fb-root"></div>
+  <!-- <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -28,23 +49,38 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
 
-  <!-- Your share button code -->
   <div class="fb-share-button" 
     data-href="https://www.your-domain.com/your-page.html" 
     data-layout="button">分享
-  </div>
+  </div> -->
   <!-- <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?
        u=http%3A%2F%2Fdolphin.com%2Fhappy-new-year%2F &
        t=Enter%20your%20name%20and%20see%20what%20you%20might%20encounter%20in%20the%20new%20year."
        target="_blank" id="J-share-facebook">分享fb
 </a> -->
-<a class="facebook" id="fb" href=""
+<!-- <a class="facebook" id="fb" href=""
        target="_blank" id="J-share-facebook">分享fb
-</a>
+</a> -->
 
 </body>
-    <script>
+<script>
+  function twitter () {
+    console.log(twttr)
+  twttr.widgets.createShareButton(
+    "http://dev.XXXX.io/?test=12345",
+    document.getElementById("container"),
+    {
+      text: "分享测试",
+      size: "large",
+      hashtags: "example,demo",
+      via: "twitterdev",
+      related: "twitterapi,twitter"
+    }
+  );
+  }
+</script>
+    <!-- <script>
         let fb = document.getElementById('fb')
             fb.href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&t=${encodeURIComponent('dwdwd')}`
-    </script>
+    </script> -->
 </html>

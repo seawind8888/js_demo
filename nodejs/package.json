@@ -13,6 +13,7 @@
         "koa-router": "^7.4.0"
     },
     "scripts": {
-        "start:pm2": "pm2 start koa.js"
+        "start:pm2": "pm2 start koa.js",
+        "dev": "NODE_ENV=prod node env.js"
     }
 }
