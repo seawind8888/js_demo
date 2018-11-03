@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^0.18.0",
     "fs": "^0.0.1-security",
     "fs-extra": "^7.0.0"
   }
