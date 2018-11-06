@@ -8,9 +8,9 @@ const request = require('request')
 //     } 
 //         console.log(response + body) // 打印google首页
 // }))
+// 'http://172.30.30.186:8080/media/bcmWebVersion/uploadWebsiteResources'
 
-
-let r = request.post('http://172.30.30.186:8080/media/bcmWebVersion/uploadWebsiteResources', (error, response, body) => {
+let r = request.post('http://172.30.30.186:8080/media/bcmWapVersion/uploadWapResources', (error, response, body) => {
     if(error ) {
         console.error(error) 
         return;
@@ -20,6 +20,6 @@ let r = request.post('http://172.30.30.186:8080/media/bcmWebVersion/uploadWebsit
 let form = r.form();
 form.append('my_field', 'my_value')
 form.append('my_buffer', new Buffer([1, 2, 3]))
-form.append('file', fs.createReadStream('../testaa.zip'))
+form.append('file', fs.createReadStream(path.join(__dirname, '../testaa.zip')))
 
 
