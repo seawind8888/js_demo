@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceFolder}/nodejs/copy2.js"
+            "program": "${workspaceFolder}/nodejs/zeno-test-2/abbreviation2.js"
         }
     ]
 }

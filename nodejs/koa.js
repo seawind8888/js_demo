@@ -4,7 +4,8 @@ const bodyParser = require('koa-bodyparser')
 const app = new Koa()
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || 3457
-const exec = require('child_process').exec
+const execSync = require('child_process').execSync
+const nodeBash = require('./process.js')
 
 let test = new Router()
 
@@ -14,7 +15,8 @@ test.get('/', async(ctx) => {
         msg : "Successful",
         data : ""
     }
-    exec('pm2 start process.js')
+    execSync('node process.js')
+    // nodeBash()
     
 })
 

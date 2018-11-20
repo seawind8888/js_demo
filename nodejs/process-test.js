@@ -1,25 +1,28 @@
 const {
     spawn
 } = require('child_process')
+const path = require('path')
 
-ls.kill()
+function Bash () {
+    let _bash = spawn('node', [path.resolve('process.js')])
 
-let ls = spawn('node', ['process.js'])
+    _bash.stdout.on('data', (data) => {
+        finish = true
+        console.log(`stdout: ${data}`);
+    });
 
-ls.stdout.on('data', (data) => {
-    finish = true
-    console.log(`stdout: ${data}`);
-});
+    _bash.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`);
+    });
 
-ls.stderr.on('data', (data) => {
-    console.log(`stderr: ${data}`);
-});
+    _bash.on('close', (code) => {
+        finish = false
+        console.log(`子进程退出码：${code}`);
+    });
 
-ls.on('close', (code) => {
-    finish = false
-    console.log(`子进程退出码：${code}`);
-});
-
-setTimeout(() => {
-    ls.kill()   
-},10000)
+    setTimeout(() => {
+        // console.log('kill')
+        // ls.kill()   
+    },2000)
+}
+module.exports = Bash

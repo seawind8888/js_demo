@@ -1,5 +1,3 @@
-let i = 0
-setInterval(() => {
-    i++
-    console.log(i)
-},1000)
+process.on('data', () => {
+    console.log('Received SIGINT.  Press Control-D to exit.');
+});

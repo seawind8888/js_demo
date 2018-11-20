@@ -23,7 +23,7 @@ function arrayManipulation(n, queries) {
     return sum;
 }
 
-console.log(arrayManipulation(5,[
+console.log(arrayManipulation(2,[
     [1, 2, 100],
     [2, 5, 100],
     [3, 4, 100]
