@@ -4,7 +4,7 @@ const {
 const path = require('path')
 
 function Bash () {
-    let _bash = spawn('node', [path.resolve('process.js')])
+    let _bash = spawn('pm2 start', [path.resolve('process.js')])
 
     _bash.stdout.on('data', (data) => {
         finish = true

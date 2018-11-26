@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+var Module = {
+    name: 'Jafeney',
+    first: function() {
+        console.log(this);   // this对象指向调用该方法的Module对象
+        (function test() {
+            console.log(this)  // 由于变量提升，this对象指向Window对象
+        })()
+    },
+    init: function() {
+        this.first()
+    }
+}
+Module.init();
+</script>
+</html>
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>news</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            min-width: 1200px;
+        }
+
+        .news-warpper-container {
+            width: 1200px;
+        }
+
+        .news-container {
+            width: 749px;
+            margin-bottom: 63px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .news-title {
+            font-size: 36px;
+            color: RGBA(65, 65, 65, 1);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .news-time {
+            color: RGBA(154, 154, 154, 1);
+            font-size: 16px;
+            margin-bottom: 83px;
+        }
+
+        .main-container {
+            line-height: 200% !important;
+
+
+        }
+
+        .main-container .text-img {
+            margin-top: 40px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="news-warpper-container">
+            <div class="news-container">
+                <h1 class="news-title">{{articleInfo.title}}</h1>
+                <p class="news-time">{{articleInfo.date}}</p>
+                <div class="main-container">
+                    {{articleInfo.content}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

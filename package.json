@@ -3,6 +3,7 @@
     "axios": "^0.18.0",
     "carlo": "^0.9.10",
     "fs": "^0.0.1-security",
-    "fs-extra": "^7.0.0"
+    "fs-extra": "^7.0.0",
+    "node-copydir": "^1.0.0"
   }
 }
