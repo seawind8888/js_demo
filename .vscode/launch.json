@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceFolder}/nodejs/import-test.mjs"
+            "program": "${workspaceFolder}/nodejs/cheerio-test.js"
         }
     ]
 }
