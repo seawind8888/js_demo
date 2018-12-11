@@ -4,4 +4,4 @@ function* countAppleSales(i=0) {
     i++
   }
 }
-var result = countAppleSales()
+countAppleSales()
