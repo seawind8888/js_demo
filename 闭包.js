@@ -1,7 +1,11 @@
-for (var i = 0; i < 10; i++) {
-    (function(i) {
-        setTimeout(() => {
-            console.log(i)
-        },1000)
-    })(i)
-}
+function foo(){
+    var local = 1
+    function bar(){
+      local++
+      return local
+    }
+    return bar
+  }
+  
+  var func = foo()
+  console.log(func())
