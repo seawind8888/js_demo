@@ -401,9 +401,9 @@ function showText () {
   $('.textarea')
     .typetype("Sometimes, it's really nice to simulate a human typing...", {
       callback: function() {
-        // $('#wrap').fadeOut(2000,function() {
-        //   $('#space').fadeIn(2000)
-        // })
+        $('#wrap').fadeOut(2000,function() {
+          $('#space').fadeIn(2000)
+        })
       }
     }).delay(1500).typetype("\n\nThat's what this `typetype` jQuery plugin is for.")
     .delay(1000)

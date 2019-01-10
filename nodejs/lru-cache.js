@@ -6,5 +6,11 @@ var LRU = require("lru-cache")
   , cache = new LRU(options)
   , otherCache = new LRU(50) // sets just the max size
 
-cache.set("key", "value")
+
+// let obj = {
+//   a:1,
+//   b:2
+// }
+// obj.a++
+// cache.set("key", JSON.stringify(obj))
 console.log(cache.get("key")) // "value"

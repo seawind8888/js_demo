@@ -2,14 +2,14 @@ const fs = require('fs')
 const path = require('path')
 
 
-function copydir(f, t, cb) {
+async function copydir(f, t) {
     let _f = path.join(__dirname, f)
     let _t = path.join(__dirname, t)
     
-    _copydir(_f, _t, cb);
+    _copydir(_f, _t);
 }
 
-function _copydir(f, t, cb) {
+function _copydir(f, t) {
     try {
         fs.accessSync(t);
     } catch (e) {
@@ -27,13 +27,16 @@ function _copydir(f, t, cb) {
                     _copydir(_f, _t)
                 }
             } catch (e) {
-                cb(e)
+                console.log(e)
             }
         })
     } catch (e) {
-        cb(e)
+        console.log(e)
     }
 }
 
-
-module.exports = copydir
+async function copy() {
+    // await copydir('./aaa', './eee')
+    // await copydir('./iii', './ddd')
+}
+copy()
