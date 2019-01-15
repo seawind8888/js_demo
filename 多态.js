@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-
-<body>
-
-</body>
-<script>
 var makeSound = function(animal) {
     animal.sound();
 }
@@ -23,6 +12,3 @@ Chicken.prototype.sound = function() {
 }
 makeSound(new Chicken());
 makeSound(new Duck());
-</script>
-
-</html>

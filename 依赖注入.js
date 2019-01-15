@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-<script>
     function one(a) {
         this.a = a;
     }
@@ -24,5 +15,3 @@
     var end = start.two(function(aa,bb,cc){
        return aa();
     })
-</script>
-</html>

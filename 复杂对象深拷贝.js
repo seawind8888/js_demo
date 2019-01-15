@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-
-<body>
-
-</body>
-<script>
   function deepCopy(obj) {
     let copy = {};
 
@@ -29,6 +18,3 @@
 
     return copy;
   }
-</script>
-
-</html>
