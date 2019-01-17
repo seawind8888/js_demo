@@ -1,22 +1,55 @@
 const mongoose = require('mongoose');
-// const db = mongoose.connection;
+// const Promise = require('bluebird');
+// Promise.promisifyAll(mongoose);
 
-mongoose.connect('mongodb://localhost:27017/test',{useNewUrlParser: true});
-
-
-const PersonSchema = new mongoose.Schema({
-    name:String,
-    list: [
-        {
-            create_at: String,
-            update_at: [{aaa: String}]
-        }
-    ]
+mongoose.connect('mongodb://localhost:27017/test', {
+    useNewUrlParser: true
 });
 
 
-const PersonModel = mongoose.model('Person',PersonSchema);
+const PersonSchema = new mongoose.Schema({
+    name: String,
+    list: [{
+        create_at: String,
+        update_at: [{
+            aaa: String
+        }]
+    }]
+});
 
+
+const PersonModel = mongoose.model('Person', PersonSchema);
+
+async function start() {
+    await PersonModel.create({
+        name: 'aaa',
+        list: [{
+            create_at: '333',
+            update_at: []
+        }]
+    })
+    await PersonModel.updateOne({
+        "list.create_at": '333'
+    }, {
+        '$set': {
+            'list.$.create_at': '222'
+        },
+        '$push': {
+            'list.$.update_at': [{
+                aaa: 'bbb'
+            }, {
+                aaa: 'ccc'
+            }]
+        }
+    }, {
+        upsert: true
+    }, (err) => {
+        console.log(err)
+    })
+
+}
+
+start()
 
 // PersonModel.create({
 //     name: 'aaa',
@@ -25,16 +58,16 @@ const PersonModel = mongoose.model('Person',PersonSchema);
 //         update_at: []
 //     }]
 // }).then(() => {
-    PersonModel.updateOne({"list.create_at":'333'},{
-        '$set': {
-            'list.$.create_at': '222'
-        },
-        '$push': {
-            'list.$.update_at': [{aaa:'bbb'},{aaa:'ccc'}]
-        }
-    },{upsert: true},(err) => {
-        console.log(err)
-    })
+// PersonModel.updateOne({"list.create_at":'333'},{
+//     '$set': {
+//         'list.$.create_at': '222'
+//     },
+//     '$push': {
+//         'list.$.update_at': [{aaa:'bbb'},{aaa:'ccc'}]
+//     }
+// },{upsert: true},(err) => {
+//     console.log(err)
+// })
 // })
 // PersonModel.updateOne({name: 'aaa'},{
 //     '$pull': {
@@ -51,7 +84,7 @@ const PersonModel = mongoose.model('Person',PersonSchema);
 
 
 
-    
+
 
 
 // var cache = require('memory-cache');
@@ -76,6 +109,3 @@ const PersonModel = mongoose.model('Person',PersonSchema);
 // obj.a++
 
 // "value"
-
-
-
