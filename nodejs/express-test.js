@@ -2,10 +2,10 @@ var app = require('express')()
 
 app.all('*', (req, res, next) => {
   const {
-      origin,
-      Origin,
-      referer,
-      Referer
+    origin,
+    Origin,
+    referer,
+    Referer
   } = req.headers;
   const allowOrigin = origin || Origin || referer || Referer || '*';
   res.header("Access-Control-Allow-Origin", allowOrigin);
@@ -14,21 +14,29 @@ app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true); //可以带cookies
   res.header("X-Powered-By", 'Express');
   if (req.method == 'OPTIONS') {
-      res.sendStatus(200);
+    res.sendStatus(200);
   } else {
-      next();
+    next();
   }
 });
 
-app.use('/datain/:code', function (req, res, next) {
-  res.send({
-    status: '200',
-    code: req.params.code,
-    message: '调用成功',
-  });
-  next()
+app.use('/datain', function (req, res, next) {
+  console.log('req.query.code', req.query.code)
+  try {
+    res.send({
+      code: 200,
+      message: 'successd',
+      data: req.query.code,
+    });
+  } catch (error) {
+    res.send({
+      code: 0,
+      message: 'error',
+      data: error,
+    });
+  }
 });
 
 app.listen(8998, () => {
-	console.log(`成功监听端口：8998`)
+  console.log(`成功监听端口：8998`)
 });
