@@ -1,0 +1,150 @@
+.dapp-list {
+  margin: 0 10px 10px;
+  /*width: 50%;*/
+  width: 100%;
+}
+.dapp-list .platform-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+.dapp-list .platform-list .platform-list-item {
+  font-size: 14px;
+  font-family: Overpass, sans-serif;
+}
+.dapp-list .platform-list .platform-list-item .list-item-h {
+  font-size: 10px;
+}
+.dapp-list .platform-list .platform-list-item .list-item-title {
+  font-size: 14px;
+  font-family: Helvetica-Bold;
+  font-weight: bold;
+  color: #0c0c2a;
+  line-height: 17px;
+  margin-right: 5px;
+}
+.dapp-list .platform-list .platform-list-item .list-item-img {
+  height: 12px;
+}
+.dapp-list .platform-list .platform-list-item:nth-of-type(1) {
+  width: 90px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+}
+.dapp-list .platform-list .platform-list-item:nth-of-type(2) {
+  width: 200px;
+  text-align: right;
+}
+.dapp-list .platform-list .platform-list-item:nth-of-type(3) {
+  width: 120px;
+  text-align: center;
+  color: rgba(12, 12, 42, 0.7);
+  line-height: 17px;
+}
+.dapp-list .platform-list .platform-list-item:nth-of-type(4) {
+  width: 130px;
+  text-align: right;
+  color: rgba(12, 12, 42, 0.7);
+  line-height: 17px;
+}
+.dapp-list .platform-list .platform-list-item:nth-of-type(5) {
+  width: 150px;
+  text-align: center;
+  color: rgba(12, 12, 42, 0.7);
+  line-height: 17px;
+}
+.dapp-list .dapp-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  height: 48px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+.dapp-list .dapp-item .dapp-list-0 {
+  background: #232ebd;
+}
+.dapp-list .dapp-item .dapp-list-1 {
+  background: rgba(35, 46, 189, 0.9);
+}
+.dapp-list .dapp-item .dapp-list-2 {
+  background: rgba(35, 46, 189, 0.8);
+}
+.dapp-list .dapp-item .dapp-list-3 {
+  background: rgba(35, 46, 189, 0.7);
+}
+.dapp-list .dapp-item .dapp-list-4 {
+  background: rgba(35, 46, 189, 0.6);
+}
+.dapp-list .dapp-item .DApp-list-info-logo {
+  display: flex;
+  align-items: center;
+}
+.dapp-list .dapp-item .DApp-list-info .serial-number {
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 50%;
+  text-align: center;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(1) {
+  width: 30px;
+  margin-left: 5px;
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(2) {
+  width: 200px;
+  text-align: left;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(2) p {
+  cursor: pointer;
+  font-size: 14px;
+  color: rgba(12, 12, 42, 0.8);
+  line-height: 17px;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(2) img {
+  width: 26px;
+  height: 26px;
+  margin: 0  6px;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(2) img[lazy=error] {
+  background: url('~assets/imgs/dapp-logo-defult.png') no-repeat;
+  background-size: 100% 100%;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(2) img[lazy=loading] {
+  background: url('~assets/imgs/dapp-logo-defult.png') no-repeat;
+  background-size: 100% 100%;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(3) {
+  width: 100px;
+  text-align: center;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(4) {
+  width: 100px;
+  text-align: right;
+  font-size: 12px;
+  margin-right: 6px;
+}
+.dapp-list .dapp-item .DApp-list-info:nth-of-type(5) {
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  margin: 4px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
