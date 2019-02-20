@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        (function (doc, win) {
+            var docEI = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEI.clientWidth;
+                    if (!clientWidth) return;
+                    //100是字体大小，1536是开发时浏览器窗口的宽度，等比计算
+                    docEI.style.fontSize = 100 * (clientWidth / 1536) + 'px';
+                }
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        /* html {
+            font-size: 100px;
+        }
+
+        body {
+            font-size: 14px;
+        } */
+        div {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1111</div>
+</body>
+
+</html>
