@@ -7,20 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        (function (doc, win) {
-            var docEI = doc.documentElement,
-                resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
-                recalc = function () {
-                    var clientWidth = docEI.clientWidth;
-                    if (!clientWidth) return;
-                    //100是字体大小，1536是开发时浏览器窗口的宽度，等比计算
-                    docEI.style.fontSize = 100 * (clientWidth / 1536) + 'px';
-                }
+        // (function (doc, win) {
+        //     var docEI = doc.documentElement,
+        //         resizeEvt = 'orientationchange' in window ? 'orientataionchange' : 'resize',
+        //         recalc = function () {
+        //             var clientWidth = docEI.clientWidth;
+        //             if (!clientWidth) return;
+        //             //100是字体大小，1536是开发时浏览器窗口的宽度，等比计算
+        //             docEI.style.fontSize = 100 * (clientWidth / 1536) + 'px';
+        //         }
 
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
+        //     if (!doc.addEventListener) return;
+        //     win.addEventListener(resizeEvt, recalc, false);
+        //     doc.addEventListener('DOMContentLoaded', recalc, false);
+        // })(document, window);
+        document.addEventListener("DOMContentLoaded",function(){
+    // 淘宝做法多写了下面这2句，修改viewport
+        let scale = 1 / window.devicePixelRatio;
+        document.querySelector('meta[name="viewport"]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no'); 
+    // 通用做法（淘宝+网易都需要），修改font-size
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+    },false)
     </script>
     <style>
         /* html {
@@ -29,6 +36,13 @@
 
         body {
             font-size: 14px;
+        } */
+        /* div {
+            width: .2rem;
+            height: .2rem;
+            background: #000000;
+            color: #ffffff;
+            font-size: .2rem;
         } */
         div {
             width: 20px;

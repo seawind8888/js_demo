@@ -4,12 +4,13 @@ var obj = {
 Object.defineProperty(obj, 'name', {
   enumerable: true,
   configurable: true,
-  get: function () {
-
-    return '111'
+  get: function (a,b,c) {
+    console.log(`get ${a}; ${b}; ${c}`)
+    return 'get111'
 
   },
-  set: function (val) {
+  set: function (val,b,c) {
+    console.log(`get ${val}; ${b}; ${c}`)
     console.log('set' + val)
   }
 })

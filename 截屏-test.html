@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./static/rasterizeHTML.js"></script>
+
+<body>
+
+<canvas id="canvas" width="300" height="200" style="border: 1px solid black;"></canvas>
+
+<!-- <div id="thehtml" style="display: none;">
+    <style>
+        .test {
+          font-size: 20px;
+          background-color: yellow;
+        }
+    </style>
+    <div class="test">Render this</div>
+</div> -->
+<iframe id="thehtml" src="http://www.baidu.com" widht="500" height="500" frameborder="0"></iframe>
+<a onclick="ss();">截图</a>
+<script>
+function ss(){
+	var canvas = document.getElementById("canvas"),
+		html_container = document.getElementById("thehtml"),
+		html = html_container.innerHTML;
+
+	rasterizeHTML.drawHTML(html, canvas);
+}
+
+</script>
+</body>
+
+</html>

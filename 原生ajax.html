@@ -13,7 +13,7 @@
   function Ajax(obj) {
     //根据obj对method,data,url等进行初始化
   };
-  Ajax.prototype.send = function () {
+  Ajax.prototype.send = function (obj) {
     var xhr = new XMLHttpRequest(); //新建ajax请求，不兼容IE7以下
     xhr.onreadystatechange = function () { //注册回调函数
       if (xhr.readyState === 4)
@@ -31,6 +31,7 @@
       return fasle;
     }
   }
+  new Ajax({method:'get',url: 'http://172.30.88.128:10100/accountAccredit/getAccountByUserId?userId=1'}).send()
 </script>
 
 </html>

@@ -1,1 +1,5 @@
-currying(1)(2)(3)
+var Foo = function () {
+//   this.foo = function () {
+//     console.log(3)
+//   }
+// }

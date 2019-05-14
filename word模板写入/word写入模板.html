@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="generate()">Generate document</button>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input id="file" type="file" name="file"/>
+        <button id="upload" type="button" onclick="test()">upload</button>
+    </form>
+    <iframe id='viewer' style='width: 1024px; height: 600px;'></iframe>
+</body>
+    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.9.1/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.6.1/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.js"></script>
+    <script src="https://www.pdftron.com/4.0/lib/webviewer.min.js"></script>
+    <!--
+    Mandatory in IE 6, 7, 8 and 9.
+    -->
+    <!--[if IE]>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils-ie.js"></script>
+    <![endif]-->
+    <script>
+    function test () {
+        var fileObj = document.getElementById("file").files[0]; 
+        // let _form = new FormData($('#uploadForm')[0])
+        $.ajax({
+            url: '/upload',
+            type: 'POST',
+            cache: false,
+            data: _form,
+            processData: false,
+            contentType: false
+        }).done(function(res) {
+        }).fail(function(res) {});
+    }
+    function loadFile(url,callback){
+        JSZipUtils.getBinaryContent(url,callback);
+    }
+    function generate() {
+        loadFile("http://172.30.88.202:5003/开户--预付合同模板.docx",function(error,content){
+            if (error) { throw error };
+            var zip = new JSZip(content);
+            var doc=new window.docxtemplater().loadZip(zip)
+            doc.setData({
+                advertiserName: '吊袜带哇大无吊袜带哇大无吊袜带哇大无吊袜带哇大无',
+                contacts: '吊袜带哇大吊袜带哇大无吊袜带哇大无吊袜带哇大无',
+                telephone: '232323232323',
+                email: '2323@2323.com',
+                operateName: '吊袜带哇大吊袜带哇大无吊袜带哇大无'
+            });
+            try {
+                // render the document (replace all occurences of {first_name} by John, {last_name} by Doe, ...)
+                doc.render()
+            }
+            catch (error) {
+                var e = {
+                    message: error.message,
+                    name: error.name,
+                    stack: error.stack,
+                    properties: error.properties,
+                }
+                console.log(JSON.stringify({error: e}));
+                // The error thrown here contains additional information when logged with JSON.stringify (it contains a property object).
+                throw error;
+            }
+            var out=doc.getZip().generate({
+                download: false,
+                type:"blob",
+                mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            }) //Output the document using Data-URI
+          
+            // saveAs(out,"output.docx")
+            // var out = doc.output({
+            //     download:false,
+            //     type:"blob"
+            // })
+            var _form = new FormData()
+            _form.append('webmasterfile', out)
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                cache: false,
+                data: _form,
+                processData: false,
+                contentType: false
+            }).done(function(res) {
+            }).fail(function(res) {});
+            // });
+        })
+    }
+    </script>
+</html>
