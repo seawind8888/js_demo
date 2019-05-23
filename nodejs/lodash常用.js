@@ -21,10 +21,11 @@ var foo = [
         code: 3
       }
 ]
-var bar = _.find(foo, ['value', '达瓦大无多'])
+var bar = _.find(foo, ['value', '易点'])
 // var bar = _.reject(foo, ['label', '易点'])
-// console.log(bar)
-const array1 = [{adPlatform:"google",ratio:"12"}]
-const array2 = [{adPlatform:"google",ratio:"12"},{adPlatform:"tiktok",ratio:"10"}]
+console.log(bar)
+// const array1 = [{adPlatform:"google",ratio:"12"}]
+// const array2 = [{adPlatform:"google",ratio:"13"},{adPlatform:"tiktok",ratio:"10"}]
+let a = [1,2,3]
 
-console.log(_.differenceBy(array1, array2))
+// console.log(_.differenceWith(array1, array2, _.isEqual))

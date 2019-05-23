@@ -12,7 +12,7 @@
     <script>
         
         function throttle(fn, interval = 2000) {
-            let canRun = true;
+            var canRun = true;
             return function () {
                 if (!canRun) return;
                 canRun = false;
