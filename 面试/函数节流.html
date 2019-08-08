@@ -11,27 +11,27 @@
 <body>
     <script>
         
-        function throttle(fn, interval = 2000) {
-            var canRun = true;
-            return function () {
-                if (!canRun) return;
-                canRun = false;
-                setTimeout(() => {
-                    fn.apply(this, arguments);
-                    canRun = true;
-                }, interval);
-            };
-        }
         // function throttle(fn, interval = 2000) {
-        //     let _lastTime = null
+        //     var canRun = true;
         //     return function () {
-        //         let __nowTime = + new Date()
-        //         if(__nowTime - interval > _lastTime || !_lastTime) {
-        //             fn()
-        //             _lastTime = __nowTime
-        //         }
-        //     }
+        //         if (!canRun) return;
+        //         canRun = false;
+        //         setTimeout(() => {
+        //             fn.apply(this, arguments);
+        //             canRun = true;
+        //         }, interval);
+        //     };
         // }
+        function throttle(fn, interval = 2000) {
+            let _lastTime = null
+            return function () {
+                let __nowTime = + new Date()
+                if(__nowTime - interval > _lastTime || !_lastTime) {
+                    fn()
+                    _lastTime = __nowTime
+                }
+            }
+        }
         window.onclick = throttle(() => {console.log(1)})
     </script>
 </body>

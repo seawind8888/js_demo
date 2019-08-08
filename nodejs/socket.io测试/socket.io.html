@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="m">
+    <button id="submit">提交</button>
+</body>
+<script src="https://cdn.bootcss.com/socket.io/2.2.0/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(function () {
+    var socket = io('http://localhost:3001');
+    $('#submit').click(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#m').val());
+      return false;
+    });
+  });
+</script>
+</html>

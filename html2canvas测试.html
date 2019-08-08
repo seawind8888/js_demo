@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <div>
+        <iframe id="iframe" width="800" height="800" src="https://www.baidu.com"></iframe>
+        <div id="content" style="height:800px" ></div>
+    </div>
+    <script>
+    var body = $(iframe).contents()['prevObject'][0];
+        html2canvas(body).then(canvas => {
+            $('#content').append(canvas)
+        })
+    </script>
+</body>
+</html>
