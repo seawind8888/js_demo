@@ -28,8 +28,8 @@ var tree = {
 let DFSList = []
 function DFS(node) {
     DFSList.push(node.value)
-    if(node.left) arguments.callee(node.left)
-    if(node.right) arguments.callee(node.right)
+    if(node.left) DFS(node.left)
+    if(node.right) DFS(node.right)
 }
 DFS(tree)
 console.log(DFSList)

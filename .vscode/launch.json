@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceFolder}/nodejs/简易Promise.js"
+            "program": "${workspaceFolder}/面试/设计模式/完善发布订阅模式.js"
         }
     ]
 }
