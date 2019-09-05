@@ -1,16 +1,17 @@
 
-let promiseCount = 0
-var p = () => {
-  promiseCount++
-  console.log(promiseCount)
-  return new Promise((resolve, reject) => {
-    if(promiseCount < 5) {
-      resolve(promiseCount)
-    } else {
-      reject(error)
-    }
+
+var p1 = new Promise((resolve, reject) => {
+    resolve('p1')
   })
-}
-Promise.all([p,p,p,p,p,p,p]).then(() => {
-  console.log('then')
+
+var p2 = new Promise((resolve, reject) => {
+    resolve('p2')
+  })
+
+var p3 = new Promise((resolve, reject) => {
+    reject('p3')
+  })
+
+Promise.all([p1,p2,p3,p2,p1]).then((res) => {
+  console.log(res)
 })

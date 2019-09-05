@@ -5,11 +5,11 @@ function Foo () {
     console.log(this.value)
 }
 
-Function.prototype.bind2 = function(context) {
+Function.prototype._bind = function(context) {
     var _self = this
     return function() {
         return _self.apply(context)
     }
 }
-var bind = Foo.bind2(foo)
+var bind = Foo._bind(foo)
 console.log(bind())

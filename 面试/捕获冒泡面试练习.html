@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #aaa {
+            width: 200px;
+            height: 200px;
+            background-color: aqua
+        }
+        #bbb {
+            width: 150px;
+            height: 150px;
+            background-color: blueviolet;
+        }
+        #ccc {
+            width: 100px;
+            height: 100px;
+            background-color: brown
+        }
+    </style>
+</head>
+<body>
+    <div  id="aaa">
+        <div id="bbb">
+            <div onclick="handler()" id="ccc"></div>
+        </div>
+    </div>
+    <script>
+        function handler() {
+            console.log('dom-on-ccc')
+        }
+        let aaa = document.querySelector('#aaa')
+        let bbb = document.querySelector('#bbb')
+        let ccc = document.querySelector('#ccc')
+        
+        aaa.addEventListener('click',() => {
+            console.log('m-aaa')
+        },false)
+        bbb.addEventListener('click',() => {
+            console.log('m-bbb')
+        },false)
+        ccc.addEventListener('click',() => {
+            console.log('m-ccc')
+        },false)
+        aaa.addEventListener('click',() => {
+            console.log('b-aaa')
+        },true)
+        bbb.addEventListener('click',() => {
+            console.log('b-bbb')
+        },true)
+        ccc.addEventListener('click',() => {
+            console.log('b-ccc')
+        },true)
+       
+        // b-aaa b-bbb dom-on-ccc m-ccc b-ccc m-bbb m-aaa
+        aaa.onclick = function () {
+            console.log('on-aaa')
+        }
+    </script>
+</body>
+</html>

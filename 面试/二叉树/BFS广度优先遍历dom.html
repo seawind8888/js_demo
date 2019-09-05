@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <div class="root">
+  <div id="root">
     <div class="container">
       <section class="sidebar">
         <ul class="menu"></ul>
@@ -20,30 +20,47 @@
   </div>
 </body>
 <script>
-  let printInfo = (node) => {
-    console.log(node.tagName, '.' + node.className)
-  }
-  let root = document.getElementsByClassName('root')[0]
+  // let printInfo = (node) => {
+  //   console.log(node.tagName, '.' + node.className)
+  // }
+  // let root = document.getElementsByClassName('root')[0]
 
-  // 此时遍历的为current，记录下一层遍历的为nextRound，初始值为root
-  let current = []
-  let nextRound = [root]
-  console.log(nextRound)
-  // 遍历函数
-  function bfs() {
-    current = nextRound
-    // 将nextRound重置，切记不可直接设置length为0，这样current也会重置
-    nextRound = []
-    Array.from(current).forEach(function (el) {
-      printInfo(el)
-      Array.from(el.children).forEach(function (element) {
-        nextRound.push(element)
-      })
+  // // 此时遍历的为current，记录下一层遍历的为nextRound，初始值为root
+  // let current = []
+  // let nextRound = [root]
+  // console.log(nextRound)
+  // // 遍历函数
+  // function bfs() {
+  //   current = nextRound
+  //   // 将nextRound重置，切记不可直接设置length为0，这样current也会重置
+  //   nextRound = []
+  //   Array.from(current).forEach(function (el) {
+  //     printInfo(el)
+  //     Array.from(el.children).forEach(function (element) {
+  //       nextRound.push(element)
+  //     })
+  //   })
+  // }
+
+  // // 开始遍历
+  // while (nextRound.length) {
+  //   bfs()
+  // }
+  let root = [document.getElementById('root')]
+
+  var bfs = function BFS () {
+    root.forEach((e, i ,a) => {
+      console.log(e.tagName + '.' + e.className) 
+      root.splice(i, 1)
+      if(e.children) {
+        [...e.children].forEach((ec,ic) => {
+          root.push(ec)
+        })
+      }
     })
   }
-
-  // 开始遍历
-  while (nextRound.length) {
+  // stack.push(root)
+  while (root.length) {
     bfs()
   }
 </script>

@@ -7,11 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    111
-    <iframe src="http://192.168.31.134:5001/index.html" frameborder="0"></iframe>
+    
 </body>
 <script>
-    // window.frames[0].postMessage('aaa','http://192.168.31.134:5000/iframe2.html')
-    // localStorage.setItem('message', 'hello')
+    function test () {
+        var a = 1
+        return function () {
+            a++
+            console.log(a)
+        }()
+    }
+    // function test1(a) {
+    //     let a = a
+    //     console.log(a)
+    // }
+    test()
 </script>
 </html>
