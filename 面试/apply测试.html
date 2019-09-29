@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.apply2 = function(context, arr) {
+        var context = Object(context) || window;
+        context.fn = this;
+        console.log(context, 233);
+        console.log(context.fn(), 122);
+
+        var result;
+        if (!arr) {
+          result = context.fn();
+        } else {
+          var args = [];
+          for (var i = 0, len = arr.length; i < len; i++) {
+            args.push('arr[' + i + ']');
+          }
+          result = eval('context.fn(' + args + ')');
+        }
+        delete context.fn;
+        return result;
+      };
+
+      var foo = function() {
+        console.log(this.name);
+      };
+
+      foo = function() {
+        this.name = '333';
+        console.log(this.name);
+      };
+      foo.apply2({ name: '222' });
+    </script>
+  </body>
+</html>

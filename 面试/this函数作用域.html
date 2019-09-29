@@ -11,7 +11,6 @@
 </body>
 <script>
  var name = 'window'
-
  var person1 = {
    name: 'person1',
    show1: function () {
@@ -22,24 +21,42 @@
      name: 'person3',
      show4: () => {console.log(this.name)}
    },
-   
    show5:function() {
-     this.name = '23123232'
      this.show6 = () => {console.log(this.name)}
+     this.show7 = function () {
+       console.log(this.name)
+     }
    }
  }
- var person2 = { name: 'person2' }
  
- person1.show1() //'person1'
- person1.show1.call(person2)//'person2'
- 
- person1.show3.show4()//'window'
- var a = new person1.show5()
- a.show6() // '23123232'
-
+ var person2 = { name: 'person2', sex: 'man' }
+ person1.show1()  // 'person1'
+ person1.show1.call(person2)  // 'person2'
+ person1.show1 = function () { this.name = 'person1-1';console.log(this.name) }
+ person1.show1() // 'person1-1'
+ person1.show1.call(person2) // 'person1-1'
  person1.show2() // 'window'
- person1.show2.call(person2) //'window'
+ person1.show2.call(person2) // 'window'
+ person1.show3.show4() // 'window'
+ var a = new person1.show5()
+ a.show6() // 'undefind'
+ a.show7()// 'undefind'
+ person1.show5 = function() {
+   this.name = 'person5'
+    this.show6 = () => {console.log(this.name)}
+    this.show7 = function () {
+      console.log(this.name)
+    }
+ }
+ a = new person1.show5()
+ a.show6() // 'person5'
+ a.show7()// 'person5'
+ a.name = 'person5-5'
+ a.show6() // 'person5-5'
+ a.show7() // 'person5-5'
+
  
+
  </script>
 
 </html> 

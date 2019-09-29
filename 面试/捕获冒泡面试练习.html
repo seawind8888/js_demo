@@ -40,6 +40,9 @@
         aaa.addEventListener('click',() => {
             console.log('m-aaa')
         },false)
+        aaa.addEventListener('click',() => {
+            console.log('m-aaa-2')
+        },false)
         bbb.addEventListener('click',() => {
             console.log('m-bbb')
         },false)
@@ -55,11 +58,18 @@
         ccc.addEventListener('click',() => {
             console.log('b-ccc')
         },true)
-       
-        // b-aaa b-bbb dom-on-ccc m-ccc b-ccc m-bbb m-aaa
+        
+        aaa.onmousedown = function () {
+            console.log('on-mouse-down')
+        }
+        aaa.onmouseup = function () {
+            console.log('on-mouse-up')
+        }
         aaa.onclick = function () {
             console.log('on-aaa')
         }
+
+        //on-mouse-down on-mouse-up b-aaa b-bbb dom-on-ccc m-ccc b-ccc m-bbb m-aaa
     </script>
 </body>
 </html>

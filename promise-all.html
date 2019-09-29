@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    var p1 = new Promise((resolve, reject) => {
+      resolve('p1');
+    });
+
+    var p2 = new Promise((resolve, reject) => {
+      resolve('p2');
+    });
+
+    var p3 = new Promise((resolve, reject) => {
+      reject('p3');
+    });
+    // Promise.all([p1, p2, p2, p1]).then(res => {
+    //   console.log(res);
+    // });
+    // Promise.all([p1, p2, p3, p2, p1]).then(res => {
+    //   console.log(res);
+    // });
+    // Promise.race([p1, p2, p3, p2, p1]).then(res => {
+    //   console.log(res);
+    // });
+  </script>
+</html>

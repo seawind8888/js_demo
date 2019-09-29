@@ -1,17 +1,17 @@
 var obj = {
-  name: '111'
+  name: [],
 }
 Object.defineProperty(obj, 'name', {
   enumerable: true,
   configurable: true,
-  get: function (a,b,c) {
-    console.log(`get ${a}; ${b}; ${c}`)
+  get: function (val) {
+    console.log(`get ${val}`)
     return 'get111'
 
   },
-  set: function (val,b,c) {
-    console.log(`get ${val}; ${b}; ${c}`)
-    console.log('set' + val)
+  set: function (newVal) {
+    console.log(`set ${newVal}`)
   }
 })
-obj.name = '222'
+obj.name.push(111)
+console.log(obj.name)
