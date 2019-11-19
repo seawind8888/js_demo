@@ -9,11 +9,12 @@
 </head>
 
 <body>
-    <div></div>
+    <div>
+        <input id="input"/>
+    </div>
     <script>
         
         function debounce(fn, interval = 1000) {
-           
             var timeout = null
             return function () {
                 if(timeout) {
@@ -25,7 +26,10 @@
                 }, interval);
             }
         }
-        window.onclick = debounce(() => {console.log(1)})
+        var validate = debounce(function(e) {
+            console.log("change", e.target.value)
+        }, 1000);
+        document.querySelector("#input").addEventListener('input', validate);
     </script>
 </body>
 

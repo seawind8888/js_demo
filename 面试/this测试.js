@@ -13,7 +13,7 @@ var obj = {
     console.log(this); // {f: 2, fn: ƒ}
     console.log(this.a); // 2
     function test() {
-        console.log(this) // 3
+        console.log(this) // window
     }
     test()
   }

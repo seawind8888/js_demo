@@ -11,7 +11,7 @@ process.on('message', function(msg) {
 })
 
 worker.send('---');
-process.emit('message', '------');
+process.emit('message', 'master ------');
 
 // pid in master: 22229      // 主进程创建后打印其 pid
 // 2: ------                 // 主进程收到给自己发的消息

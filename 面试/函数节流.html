@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <button id="button">测试</button>
     <script>
         
         function throttle(fn, interval = 2000) {
@@ -17,7 +18,7 @@
                 if (!canRun) return;
                 canRun = false;
                 setTimeout(() => {
-                    fn.apply(this);
+                    fn.apply(this,arguments);
                     canRun = true;
                 }, interval);
             };
@@ -32,7 +33,10 @@
         //         }
         //     }
         // }
-        window.onclick = throttle(() => {console.log(1)})
+        handleOnClick = throttle(function(e){
+            console.log('[event]',e)
+        })
+        document.querySelector('#button').addEventListener('click', handleOnClick)
     </script>
 </body>
 

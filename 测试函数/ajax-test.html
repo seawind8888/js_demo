@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button onclick="login()">登录</button>
+      <button onclick="getAd()">广告主</button>
+    </div>
+    <script>
+      var token = '';
+      function login() {
+        $.post('http://172.30.50.56:8091/login', {
+          loginName: 'admin',
+          password: 'admin'
+        }, (res) => {
+            token = res.data.token
+            console.log(token)
+        });
+      }
+      function getAd() {
+        $.ajax({
+          url:
+            'http://172.30.50.56:8091/advertiser/getAdvInfos?pageNum=1&pageSize=10&advertiserId=1',
+          headers: {
+            Accept: 'application/json; charset=utf-8',
+            Authorization: `Bear-${token}`
+          },
+          type: 'get',
+          success: function(data) {
+            console.log(data);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
 function loggingIdentity<T>(arg: T): T {
     return arg;
 }
-loggingIdentity<string>('23232')
+console.log(loggingIdentity<string>('23232'))
