@@ -3,3 +3,4 @@ function _new(fn, ...arg) {
     const ret = fn.apply(obj, arg);
     return ret instanceof Object ? ret : obj;
 }
+
