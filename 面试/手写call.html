@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        Function.prototype.call2 = function (context) {
+        Function.prototype._call = function (context) {
             // 判断是否是undefined和null
             let context = context || window
             context.fn = this
@@ -32,9 +32,9 @@
             }
         }
 
-        bar.call2(null); // 2
+        bar._call(null); // 2
 
-        console.log(bar.call2(obj, 'kevin', 18));
+        console.log(bar._call(obj, 'kevin', 18));
     </script>
 </head>
 
