@@ -12,4 +12,6 @@ function add(){
 	return _add;
 }
 
+
+
 console.log(add(1)(2)(3).toString());
