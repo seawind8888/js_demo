@@ -1,6 +1,7 @@
+// 实现1
 function sum () {
     var _sum = 0
-    var _args = [].slice.call(arguments,0)
+    var _args = [...arguments]
     _args.forEach(e => {
         _sum += e
     });
@@ -8,7 +9,7 @@ function sum () {
         if(!arguments.length) {
             return _sum
         } else {
-            var __args = [].slice.call(arguments,0)
+            var __args = [...arguments]
             __args.forEach(e => {
                 _sum += e
             });

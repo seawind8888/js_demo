@@ -1,4 +1,16 @@
-var value = 'aaaa11111'
-var passwordRegex = /^(?=.*[a-zA-Z])(?=.*\\d)[\\s\\S]{8,}$/;
-                    var pReg = new RegExp(passwordRegex);
-console.log(pReg.test(value))
+function Pro() {
+    return new Promise((resolve,reject) => reject(11))
+}
+// async function test() {
+//     console.log('11')
+//     try {
+//         const res = await Pro()
+//         console.log('[res]',res)
+//     } catch (error) {
+//        console.log('[error]',error) 
+//     }
+// }
+// test()
+
+Pro().then(res => console.log('[res]',res)).catch(error =>  console.log('[error]',error) )
+

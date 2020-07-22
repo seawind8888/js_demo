@@ -2,10 +2,12 @@ const fs = require('fs')
 const path = require('path')
 
 
-async function copydir(f, t) {
-    let _f = path.join(__dirname, f)
-    let _t = path.join(__dirname, t)
-    
+function copydir(f, t, c = {}) {
+    let _f = f, _t = t
+    if(c.relative) {
+        let _f = path.resolve(process.cwd(), f)
+        let _t = path.join(process.cwd(), t)
+    }
     _copydir(_f, _t);
 }
 
@@ -35,8 +37,9 @@ function _copydir(f, t) {
     }
 }
 
+
 async function copy() {
-    // await copydir('./aaa', './eee')
+    copydir(path.resolve(__dirname, './eee'), path.resolve(__dirname, './aaa'))
     // await copydir('./iii', './ddd')
 }
 copy()

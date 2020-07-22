@@ -6,5 +6,8 @@
     "fs": "^0.0.1-security",
     "fs-extra": "^7.0.0",
     "node-copydir": "^1.0.0"
+  },
+  "devDependencies": {
+    "inquirer": "^7.3.2"
   }
 }

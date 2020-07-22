@@ -1,6 +1,6 @@
 var _new = function() {
   let constructor = [...arguments][0];
-  const obj = new Object();
+  const obj = {}
   obj.__proto__ = constructor.prototype;
   let result = constructor.call(obj, ...arguments);
   return result === 'object' ? result : obj;;
