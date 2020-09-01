@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const localPath = path.resolve('nodejs')
-// console.log(localPath)
+const localPath = path.resolve('./lodash测试')
+console.log(localPath)
 // console.log(path.resolve('nodejs/aaa'))
 console.log(path.join(__dirname, './aaa'))

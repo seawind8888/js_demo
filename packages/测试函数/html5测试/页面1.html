@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>页面1</h1>
+    <button onclick="handler()">页面2</button>
+</body>
+<script>
+    function handler() {
+        let stateObj = {
+            foo: "bar",
+        };
+        history.pushState(stateObj, "page 2", "页面2.html");
+    }
+</script>
+</html>
