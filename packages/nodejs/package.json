@@ -8,7 +8,8 @@
     "date-fns": "^2.15.0",
     "download-git-repo": "^3.0.2",
     "minimist": "^1.2.5",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "qrcode": "^1.4.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
