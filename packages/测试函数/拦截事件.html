@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        11
+        <div id='aa' data-stat="{key:'search-on-click', act: 'click'}">22</div>
+    </div>
+</body>
+<script>
+    window.addEventListener('click',(e) => {
+        console.log('[e]',e.target.getAttribute('data-stat'))
+    }, true)
+</script>
+</html>

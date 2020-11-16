@@ -7,8 +7,10 @@
     "archiver": "^5.0.0",
     "date-fns": "^2.15.0",
     "download-git-repo": "^3.0.2",
+    "lz-string": "^1.4.4",
     "minimist": "^1.2.5",
     "mysql": "^2.18.1",
+    "puppeteer": "^5.2.1",
     "qrcode": "^1.4.4"
   },
   "scripts": {
