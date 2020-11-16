@@ -1,7 +1,7 @@
 function main() {
     return {
         a: 1,
-        b: ''
+        b: '2'
     };
 }
 console.log(main());

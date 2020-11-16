@@ -5,7 +5,7 @@ interface Value {
 function main<Value>() {
     return {
         a:1,
-        b: ''
+        b: '2'
     }
 }
 
