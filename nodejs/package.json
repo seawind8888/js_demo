@@ -14,8 +14,20 @@
     "qrcode": "^1.4.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ]
+  },
+
   "author": "",
   "license": "ISC",
   "devDependencies": {
