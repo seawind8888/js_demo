@@ -52,8 +52,8 @@ async function fetchData(params) {
             url: 'https://qa-ual.shuyun.com/web-client/v1/up',
             headers: {
                 appcode: 'KwYxDYAYQJhhmAnCAZgFgBwwKYYEaIAm8aeAhtgOwhrCWUCMQA',
-  client: 'IwNgDCBMYJwKzwOwxEA',
-  authorization: 'KwYxDYAYQJhhmAnCAZgFgBwwKYYEaIAm8aeAhtgOwhrCWUCMDU4MkiwHli4QA' 
+                client: 'IwNgDCBMYJwKzwOwxEA',
+                authorization: 'KwYxDYAYQJhhmAnCAZgFgBwwKYYEaIAm8aeAhtgOwhrCWUCMDU4MkiwHli4QA'
             },
             data: LZString.compressToEncodedURIComponent(JSON.stringify(data))
         })
