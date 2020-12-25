@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "启动程序",
-            "program": "${workspaceFolder}/nodejs/文件检测.js.js"
+            "program": "${workspaceFolder}/nodejs/fs-test.js"
         }
     ]
 }
