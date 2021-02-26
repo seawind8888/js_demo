@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="module">
+        // import { test } from 'http://localhost:9528/test.mjs';
+        import("https://cdn.rawgit.com/lodash/lodash/4.17.4-es/lodash.default.js")
+            // .then(({ default: _ }) => {// load and use lodash 
+            .then(({ Component }) => {// load and use lodash 
+                console.log(`lodash version ${_.VERSION} is loaded`)
+                console.log('_.uniq([2, 1, 2]) :', _.uniq([2, 1, 2]));
+                ReactDOM.render(<Component />, document.querySelector('id'))
+            });
+        // test()
+    </script>
+</body>
+
+</html>

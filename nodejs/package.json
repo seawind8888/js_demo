@@ -5,6 +5,7 @@
   "main": "EventEmitter简易实现.js",
   "dependencies": {
     "archiver": "^5.0.0",
+    "console-png": "^1.2.1",
     "date-fns": "^2.15.0",
     "download-git-repo": "^3.0.2",
     "lz-string": "^1.4.4",
@@ -12,7 +13,8 @@
     "npm-api": "^1.0.0",
     "ora": "^5.1.0",
     "puppeteer": "^5.2.1",
-    "qrcode": "^1.4.4"
+    "qrcode": "^1.4.4",
+    "robotjs": "^0.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,18 +23,29 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "base64-arraybuffer": "^0.2.0",
     "cli-progress": "^3.8.2",
+    "dayjs": "^1.10.4",
     "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
+    "express": "^4.17.1",
     "glob": "^7.1.6",
+    "got": "^11.8.1",
     "handlebars": "^4.7.6",
     "husky": "^4.3.0",
+    "images": "^3.2.3",
     "latest-version": "^5.1.0",
     "lint-staged": "^10.5.2",
     "minimist": "^1.2.5",
     "nodegit": "^0.27.0",
     "os": "^0.1.1",
+    "qrcode-terminal": "^0.12.0",
     "semver": "^7.3.4",
+    "socket.io": "^3.1.0",
+    "socket.io-client": "^3.0.5",
+    "socket.io-redis": "^6.0.1",
+    "terminal-image": "^1.2.1",
+    "ws": "^7.4.2",
     "yargs": "^16.2.0"
   }
 }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    axios.post('https://qa-hd.minicrm.com/mall-mg/1.0/adminUser/mobile', {
+        mobile: '18611343823'
+    },{
+        headers: {
+            'X-ALIDW-MEMBER-ID': 'e695b0e4ba91e9a39fe5a082',
+            'X-ALIDW-PLAT-CODE': 'TAOBAO',
+            'X-ALIDW-SHOP-ID': '106878997',
+            'X-ALIDW-TOKEN': '9124c7e25701048db2fa0a21a70097fed35ea908',
+            'X-ALIDW-TX': '1611556761427',
+            'X-ALIDW-USER-ID': '31383439373232303337',
+            'X-ALIDW-VSHOP-ID': 'taobao_106878997',
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        console.log(res)
+    })
+</script>
+
+</html>
