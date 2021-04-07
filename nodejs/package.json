@@ -5,7 +5,10 @@
   "main": "EventEmitter简易实现.js",
   "dependencies": {
     "archiver": "^5.0.0",
+    "chokidar": "^3.5.1",
+    "connect": "^3.7.0",
     "console-png": "^1.2.1",
+    "cookie-session": "^1.4.0",
     "date-fns": "^2.15.0",
     "download-git-repo": "^3.0.2",
     "lz-string": "^1.4.4",
