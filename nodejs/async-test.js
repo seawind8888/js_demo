@@ -1,11 +1,12 @@
 const fs = require('fs-extra')
 const path = require('path')
-async function foo () {
-    if(await fs.exists(path.resolve('img'))) { // 项目名重复
-        return true
-    } else {
-        return false
-    }
+function foo () {
+    console.log(111)
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(123)
+        },2000)
+    })
 }
 
 async function test () {
@@ -13,4 +14,12 @@ async function test () {
     console.log(res)
 }
 
-test()
+async function run () {
+    try {
+        await test()
+    } catch (error) {}
+    console.log(321)
+}
+
+run()
+

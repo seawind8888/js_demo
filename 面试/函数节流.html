@@ -13,26 +13,16 @@
     <script>
         
         function throttle(fn, interval = 2000) {
-            var canRun = true;
+            var run = true;
             return function () {
-                if (!canRun) return;
-                canRun = false;
+                if (!run) return;
+                run = false;
                 setTimeout(() => {
                     fn.apply(this,arguments);
-                    canRun = true;
+                    run = true;
                 }, interval);
             };
         }
-        // function throttle(fn, interval = 2000) {
-        //     let _lastTime = null
-        //     return function () {
-        //         let __nowTime = + new Date()
-        //         if(__nowTime - interval > _lastTime || !_lastTime) {
-        //             fn()
-        //             _lastTime = __nowTime
-        //         }
-        //     }
-        // }
         handleOnClick = throttle(function(e){
             console.log('[event]',e)
         })

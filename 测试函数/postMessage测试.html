@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">传递消息</button>
+<iframe id='f' src="http://localhost:5004/postMessage测试2.html"></iframe>
+<script>
+    let oBtn=document.getElementById('btn');
+    let oFrame=document.getElementById('f');
+    oBtn.onclick=function(){
+        oFrame.contentWindow.postMessage('hello','*');
+    }
+</script>
+</body>
+</html>

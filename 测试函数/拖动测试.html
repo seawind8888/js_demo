@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 240px;
+            height: 426px;
+            background: red;
+        }
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='container'>
+        <div id='box'></div>
+    </div>
+    <script>
+        var maxClientX = 426
+        function dragFunc(id) {
+            var Drag = document.getElementById(id);
+            Drag.onmousedown = function (event) {
+                var ev = event || window.event;
+                event.stopPropagation();
+                var disX = ev.clientX - Drag.offsetLeft;
+                var disY = ev.clientY - Drag.offsetTop;
+                document.onmousemove = function (event) {
+                    var ev = event || window.event;
+                    console.log('[ev.clientX]',ev.clientX)
+                    console.log('[ev.clientY]',ev.clientY)
+                    Drag.style.left = ev.clientX - disX + "px";
+                    Drag.style.top = ev.clientY - disY + "px";
+                    Drag.style.cursor = "move";
+                };
+            };
+            Drag.onmouseup = function () {
+                document.onmousemove = null;
+                this.style.cursor = "default";
+            };
+        };
+        dragFunc('box')
+    </script>
+</body>
+
+</html>

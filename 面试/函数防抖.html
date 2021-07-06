@@ -15,13 +15,13 @@
     <script>
         
         function debounce(fn, interval = 1000) {
-            var timeout = null
+            var timer = null
             return function () {
-                if(timeout) {
+                if(timer) {
                     clearTimeout(timeout);
-                    timeout = null
+                    timer = null
                 }
-                timeout = setTimeout(() => {
+                timer = setTimeout(() => {
                     fn.apply(this, arguments);
                 }, interval);
             }

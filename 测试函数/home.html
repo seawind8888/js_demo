@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    <div>1231121</div>
+    <a
+        href='https://open.work.weixin.qq.com/wwopen/sso/3rd_qrConnect?appid=ww91156f2c9067a7ba&redirect_uri=https://qa-syyj.shuyun.com/home&state=web_login@gyoss9&usertype=member'>鉴权</a>
+    <div id='code'></div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://open.work.weixin.qq.com/wwopen/js/jwxwork-1.0.0.js"></script>
+    <script>
+        //  WWOpenData.bind(document.querySelector('ww-open-data'))
+        function getUrlPara(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return (r[2]); return null;
+        }
+        // if (/MicroMessenger/i.test(navigator.userAgent)) {
+        // }
+
+        function getSignature(data = {}) {
+            return fetch('https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature', data)
+            // return new Promise((resolve, reject) => {
+            //     $.ajax({
+            //         url: `https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature`,
+            //         method: 'get',
+            //         data,
+            //         // headers: {
+            //         //     'x-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0ZW5hbnRJZCI6InF5d3hfc3l5al93dzkxMTU2ZjJjOTA2N2E3YmEiLCJ1c2VySWQiOjExODQ4NjUxLCJ1c2VyVHlwZSI6InF5d3giLCJ1c2VyTmFtZSI6IkNoZW5QZW5nRmVpIiwiZXh0IjoxNjIzMjc1MjQ2ODA1LCJpYXQiOjE2MjMyMzIwNDY4MDUsImNvcnBJZCI6Ind3OTExNTZmMmM5MDY3YTdiYSIsImJ1c2luZXNzVXNlcklkIjoiQ2hlblBlbmdGZWkifQ.cwI-RR4REbGZb-UHmsERevY9kebhWT75b9inqMt8v_A'
+            //         // },
+            //         success: res => resolve(res),
+            //         fail: err => reject(err)
+            //     })
+            // })
+        }
+        $('#code').html(getUrlPara('code'))
+        // $.ajax({
+        //     url: 'https://qa-ual.shuyun.com/pcrm-account/1.0/login/getUserInfo3rd',
+        //     method: 'get',
+        //     contentType: "application/json;charset=utf-8",
+        //     dataType: "json",
+        //     data: {
+        //         code: getUrlPara('code'),
+        //     },
+        //     success: async r => {
+
+                $.ajax({
+                    url: `https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature`,
+                    method: 'get',
+                    data: {
+                        url: location.href,
+                        // corpId: r.data.corpInfo.corpId
+                        corpId: 'ww91156f2c9067a7ba'
+                    },
+                    success: async res => {
+                        console.log('[res]', res)
+                        if (/MicroMessenger/i.test(navigator.userAgent)) {
+                            await config({
+                                beta: true,// 必须这么写，否则wx.invoke调用形式的jsapi会有问题
+                                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: res.data.corpId, // 必填，企业微信的corpID
+                                timestamp: res.data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: res.data.noncestr, // 必填，生成签名的随机串
+                                signature: res.data.signature,// 必填，签名，见 附录-JS-SDK使用权限签名算法
+                                jsApiList: ['chooseImage'] // 必填，需要使用的JS接口列表，凡是要调用的接口都需要传进来
+                            })
+                        }
+
+                        const __data = {
+                            url: location.href,
+                            // corpId: r.data.corpInfo.corpId,
+                            corpId: 'ww91156f2c9067a7ba'
+                            // configType: 'agentConfig'
+                        }
+
+                        alert(JSON.stringify(__data))
+
+                        $.ajax({
+                            url: `https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature?configType=agentConfig`,
+                            method: 'get',
+                            data: __data,
+                            success: async resp => {
+                                console.log('[resp]', resp)
+                                await agentConfig({
+                                    corpid: resp.data.corpId,
+                                    agentid: 1000174,
+                                    timestamp: resp.data.timestamp, // 必填，生成签名的时间戳
+                                    nonceStr: resp.data.noncestr, // 必填，生成签名的随机串
+                                    signature: resp.data.signature,// 必填，签名，见 附录-JS-SDK使用权限签名算法
+                                    jsApiList: ['selectExternalContact'], //必填，传入需要使用的接口名称
+                                })
+                                console.info('window.WWOpenData', window.WWOpenData)
+                                // 注意: 只有 agentConfig 成功回调后，WWOpenData 才会注入到 window 对象上面
+                                WWOpenData.bindAll(document.querySelectorAll('ww-open-data'))
+                            }
+                        })
+
+
+                    },
+                    fail: err => reject(err)
+                })
+
+
+
+
+                function config(config) {
+                    return new Promise((resolve, reject) => {
+                        wx.config(config)
+                        wx.ready(() => { console.log('[config - ready]'); resolve() })
+                        wx.error(reject)
+                    })
+                }
+                function agentConfig(config) {
+                    return new Promise((success, fail) => {
+                        wx.agentConfig({ ...config, success: () => { console.log('[agentConfig - success]'); success() }, fail })
+                    })
+                }
+        //     },
+        //     fail: err => { console.log('[err]', err) }
+        // })
+
+
+
+
+
+    </script>
+    <ww-open-data corpid="ww91156f2c9067a7ba" type="userName" openid="zx"></ww-open-data>
+</body>
+
+</html>

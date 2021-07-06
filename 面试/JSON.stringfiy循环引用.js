@@ -27,5 +27,5 @@ JSON.stringify = function(value, replacer, space) {
     replacer = replacer || handleCircular();
     return tmp(value, replacer, space);
 }
-
+console.log(JSON.stringify(a))
 //{"b":1,"c":{"e":"[Circular c]"},"d":"[Circular root]"}
