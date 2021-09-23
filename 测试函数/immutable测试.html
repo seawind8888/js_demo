@@ -14,10 +14,16 @@
         integrity="sha512-myCdDiGJRYrvRb/VuJ67ljifYTJdc1jdEvL4c4ftX9o3N6EAnmD83c/7l2/91RCINZ7c8w21tiXDT7RDFjdc3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        var map1 = Immutable.Map({ a: 1, b: 2, c: 3 });
-        var map2 = map1.set('b', 50);
-        map1.get('b'); // 2
-        map2.get('b'); // 50
+        // var map1 = Immutable.Map({ a: 1, b: 2, c: 3 });
+        // var map2 = map1.set('b', 50);
+        // map1.get('b'); // 2
+        // map2.get('b'); // 50
+
+        // 修改藏在深处的值，可以这样：
+        var o = Immutable.fromJS({a:[{a1:1}, {b:[{t:1}]}, {c1:2}], b:2, c:3});
+        o = o.setIn(['a', 1, 'b', 0, 't'], 100);  // t赋值o = o.updateIn(['a', 1, 'b', 0, 't'], function(e){ return e * 100; }); // t * 100
+        console.log('[o]',o.toJS())
+
     </script>
 </body>
 

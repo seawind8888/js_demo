@@ -1,0 +1,1 @@
+export type ObjectType = Record<string, any>; // 把string都换砖成any

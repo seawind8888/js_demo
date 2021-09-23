@@ -4,6 +4,8 @@
   "description": "",
   "main": "EventEmitter简易实现.js",
   "dependencies": {
+    "@nlpjs/basic": "^4.22.0",
+    "ajv": "^8.6.2",
     "archiver": "^5.0.0",
     "chokidar": "^3.5.1",
     "connect": "^3.7.0",
@@ -11,13 +13,16 @@
     "cookie-session": "^1.4.0",
     "date-fns": "^2.15.0",
     "download-git-repo": "^3.0.2",
+    "graphql": "^15.5.1",
     "lz-string": "^1.4.4",
     "mysql": "^2.18.1",
     "npm-api": "^1.0.0",
     "ora": "^5.1.0",
-    "puppeteer": "^5.2.1",
+    "puppeteer": "^5.5.0",
     "qrcode": "^1.4.4",
-    "robotjs": "^0.6.0"
+    "robotjs": "^0.6.0",
+    "wechaty": "^0.62.3",
+    "wechaty-puppet-wechat": "^0.28.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,6 +31,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "apollo-server-express": "^3.0.1",
     "base64-arraybuffer": "^0.2.0",
     "cli-progress": "^3.8.2",
     "dayjs": "^1.10.4",
@@ -48,6 +54,7 @@
     "socket.io-client": "^3.0.5",
     "socket.io-redis": "^6.0.1",
     "terminal-image": "^1.2.1",
+    "tesseract.js": "^2.1.4",
     "ws": "^7.4.2",
     "yargs": "^16.2.0"
   }

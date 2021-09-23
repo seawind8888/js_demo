@@ -16,6 +16,7 @@
     <div id='code'></div>
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script></script>
     <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="https://open.work.weixin.qq.com/wwopen/js/jwxwork-1.0.0.js"></script>
     <script>
@@ -54,27 +55,27 @@
         //     },
         //     success: async r => {
 
-                $.ajax({
-                    url: `https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature`,
-                    method: 'get',
-                    data: {
-                        url: location.href,
-                        // corpId: r.data.corpInfo.corpId
-                        corpId: 'ww91156f2c9067a7ba'
-                    },
-                    success: async res => {
-                        console.log('[res]', res)
-                        if (/MicroMessenger/i.test(navigator.userAgent)) {
-                            await config({
-                                beta: true,// 必须这么写，否则wx.invoke调用形式的jsapi会有问题
-                                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                                appId: res.data.corpId, // 必填，企业微信的corpID
-                                timestamp: res.data.timestamp, // 必填，生成签名的时间戳
-                                nonceStr: res.data.noncestr, // 必填，生成签名的随机串
-                                signature: res.data.signature,// 必填，签名，见 附录-JS-SDK使用权限签名算法
-                                jsApiList: ['chooseImage'] // 必填，需要使用的JS接口列表，凡是要调用的接口都需要传进来
-                            })
-                        }
+                // $.ajax({
+                //     url: `https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature`,
+                //     method: 'get',
+                //     data: {
+                //         url: location.href,
+                //         // corpId: r.data.corpInfo.corpId
+                //         corpId: 'ww91156f2c9067a7ba'
+                //     },
+                //     success: async res => {
+                //         console.log('[res]', res)
+                //         if (/MicroMessenger/i.test(navigator.userAgent)) {
+                //             await config({
+                //                 beta: true,// 必须这么写，否则wx.invoke调用形式的jsapi会有问题
+                //                 debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                //                 appId: res.data.corpId, // 必填，企业微信的corpID
+                //                 timestamp: res.data.timestamp, // 必填，生成签名的时间戳
+                //                 nonceStr: res.data.noncestr, // 必填，生成签名的随机串
+                //                 signature: res.data.signature,// 必填，签名，见 附录-JS-SDK使用权限签名算法
+                //                 jsApiList: ['chooseImage'] // 必填，需要使用的JS接口列表，凡是要调用的接口都需要传进来
+                //             })
+                //         }
 
                         const __data = {
                             url: location.href,
@@ -83,7 +84,7 @@
                             // configType: 'agentConfig'
                         }
 
-                        alert(JSON.stringify(__data))
+                //         alert(JSON.stringify(__data))
 
                         $.ajax({
                             url: `https://qa-ual.shuyun.com/pcrm-account/1.0/corp/makeSignature?configType=agentConfig`,
@@ -92,7 +93,8 @@
                             success: async resp => {
                                 console.log('[resp]', resp)
                                 await agentConfig({
-                                    corpid: resp.data.corpId,
+                                    // corpid: resp.data.corpId,
+                                    corpid: 'ww91156f2c9067a7ba',
                                     agentid: 1000174,
                                     timestamp: resp.data.timestamp, // 必填，生成签名的时间戳
                                     nonceStr: resp.data.noncestr, // 必填，生成签名的随机串
@@ -102,13 +104,13 @@
                                 console.info('window.WWOpenData', window.WWOpenData)
                                 // 注意: 只有 agentConfig 成功回调后，WWOpenData 才会注入到 window 对象上面
                                 WWOpenData.bindAll(document.querySelectorAll('ww-open-data'))
-                            }
+                            },
                         })
 
 
-                    },
-                    fail: err => reject(err)
-                })
+                //     },
+                //     fail: err => reject(err)
+                // })
 
 
 

@@ -1,7 +1,4 @@
-const http = require('http')
-http.createServer((req, res) => {
-    res.end("hello world\n");
-    console.log("hello world\n")
-}).listen(3001);
-
-console.log('Server running on port 3001.');
+process.on('message', (m) => {
+    console.log('CHILD got message:', m);
+});
+process.send({ foo: 'bar' });

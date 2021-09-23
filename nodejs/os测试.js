@@ -1,2 +1,2 @@
-var os = require('os')
-console.log(os.EOL)
+var cpuCount = require('os').cpus().length;
+console.log('[cpuCount]',cpuCount)
