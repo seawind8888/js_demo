@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Include Editor style. -->
+<link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Create a tag that we will use as the editable area. -->
+<!-- You can use a div tag as well. -->
+
+<!-- Include Editor JS files. -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+
+<!-- Initialize the editor. -->
+<div id="myEditor"></div>
+<button id="saveButton">Save</button>
+
+<div>
+    
+</div>
+
+<script>
+  var editor = new FroalaEditor('#myEditor', {
+    // Set the save param.
+    saveParam: 'content',
+
+    // Set the save URL.
+    saveURL: 'http://example.com/save',
+
+    // HTTP request type.
+    saveMethod: 'POST',
+
+    // Additional save params.
+    saveParams: {id: 'my_editor'},
+
+    events: {
+      'save.before': function (res) {
+          console.log('[res]',res)
+        // Before save request is made.
+      },
+
+      'save.after': function () {
+        // After successfully save request.
+      },
+
+      'save.error': function () {
+        // Do something here.
+      }
+    }
+  })
+
+  document.querySelector('#saveButton').addEventListener("click", function () {
+    editor.save.save();
+  })
+</script>
+</body>
+</html>

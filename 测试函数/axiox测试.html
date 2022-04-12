@@ -12,19 +12,19 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    axios.post('https://qa-hd.minicrm.com/mall-mg/1.0/adminUser/mobile', {
-        mobile: '18611343823'
+    axios.get('https://alidw.minicrm.com/alidw-web-ccms/v1/index?callbackParam=3dbd546424e05209ae33c3a10ca2980673315b7fdabe02af3705b91a595696d06a22c52fedda928849c68e33bf8dc554a0e6ddfea29cfa81be0f1ca7624366f91ee6e1c93d50625b076cfcb414caaa7268ea8b2e37738bc2391ea9c46afc13d8280487301fb2e7e9018788a9b00c65af90c71cb6f39185609155f8f79b5dd8e8c02b8197313851d2fecd155b427a37655b8c02e102f8a81557911d061972c2c7cb89670817a5b3c3796f9102ad2193adf69e6338757b33c65cd2ea53ff140a4869abb549d9452a17b7400873e9497a5dafd27abf73d8c65d82a018e7d37663bd4578e94c2232433c02375ad8490903f7&from=ai-operation', {
+        // mobile: '18611343823'
     },{
-        headers: {
-            'X-ALIDW-MEMBER-ID': 'e695b0e4ba91e9a39fe5a082',
-            'X-ALIDW-PLAT-CODE': 'TAOBAO',
-            'X-ALIDW-SHOP-ID': '106878997',
-            'X-ALIDW-TOKEN': '9124c7e25701048db2fa0a21a70097fed35ea908',
-            'X-ALIDW-TX': '1611556761427',
-            'X-ALIDW-USER-ID': '31383439373232303337',
-            'X-ALIDW-VSHOP-ID': 'taobao_106878997',
-            'Content-Type': 'application/json'
-        }
+        // headers: {
+        //     'X-ALIDW-MEMBER-ID': 'e695b0e4ba91e9a39fe5a082',
+        //     'X-ALIDW-PLAT-CODE': 'TAOBAO',
+        //     'X-ALIDW-SHOP-ID': '106878997',
+        //     'X-ALIDW-TOKEN': '9124c7e25701048db2fa0a21a70097fed35ea908',
+        //     'X-ALIDW-TX': '1611556761427',
+        //     'X-ALIDW-USER-ID': '31383439373232303337',
+        //     'X-ALIDW-VSHOP-ID': 'taobao_106878997',
+        //     'Content-Type': 'application/json'
+        // }
     }).then(res => {
         console.log(res)
     })
